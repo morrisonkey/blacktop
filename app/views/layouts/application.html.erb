@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OffTheRoof</title>
+  <title>Blacktop</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -14,30 +14,17 @@
 
 <div id="container">
 
-<div id="header">
-	<h2>Off The Roof</h2>
+<div class="backing" id="header">
+	<h2>Blacktop</h2>
 </div>
 
-<div id="content">
+<div class="backing" id="content">
 <%= yield %>
 
-
-<footer <!-- class="clear_both" -->
-<div class="icon"><%= image_tag "balls.jpg" %></div>
-<div class="icon"><%= image_tag "balls.jpg" %></div>
-<div class="icon"><%= image_tag "balls.jpg" %></div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
+<!-- #move this up -->
 </div class="span_2_of_2">
 
-<div id="sidebar">
+<div class="backing" id="sidebar">
 	<%highlights = Game.all%>
 <div id="user_nav">
   <% if current_user %>
@@ -85,12 +72,18 @@
 <h4><a href="/new/games" %>[Add New Game]</a></h4>
 <% end %>
 
-<div class="icon"><%= image_tag "balls.jpg" %></div>
-<div class="icon"><%= image_tag "balls.jpg" %></div>
-<div class="icon"><%= image_tag "balls.jpg" %></div>
-
-
 </div><!-- sidebar -->
+
+<div class="clear_both"> <!-- footer -->
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 
 </body>
 </html>

@@ -27,7 +27,6 @@ class User < ActiveRecord::Base
       user_id: self.id,
       game_id: game.id
       })
-    redirect_to '/games'
   end
 
   def remove_favorite(game_id)

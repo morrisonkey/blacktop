@@ -1,0 +1,16 @@
+<!-- PAGE COMPLETED CONVERSION TO RAILS -->
+
+<div class='gameboard'>
+  <h1>pick a photo to add to your game page</h1>
+
+    <div class='photo_grid'>
+          <% TempPhoto.all.each do |photo| %>
+
+            <div class='poloroid'>
+                <a href="/games/generate/<%= photo.name %>/<%= @game.id %>"><p><img src='<%= photo.photo_url%>'></p></a>
+            </div>
+
+        <% end %>
+    </div>
+
+</div>

@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   def favorite
     @game = Game.find_by_id(params[:id])
     current_user.add_favorite(@game)
+    redirect_to '/games'
   end
 
 

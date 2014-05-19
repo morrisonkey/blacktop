@@ -2,10 +2,10 @@
 	<% user = User.find_by_id(game.user_id) %>
 	<% date = game.created_at.to_s.split('')[0..9].join %>
 <article>
+	<a href="/games/<%=game.id%>" class="leftup">
+	<div class="poloroid"><%= image_tag game.photo %></div></a>
 	<a href="/games/<%=game.id%>"><h1><%= game.name %></h1></a>
-	<h4><%= game.blurb %></h4>
-	<a href="/games/<%=game.id%>">
-	<div class="having_fun"><%= image_tag game.photo %></div></a>
+	<h4 class="leftup"><%= game.blurb %></h4>
 	<h3>Objective: <%=game.objective%></h3><p></p>
 	<p>Minimum Players:<%=game.min_players%></p>
 	<p>For ages <%=game.min_player_age%> and up</p>

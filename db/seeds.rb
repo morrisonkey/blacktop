@@ -37,43 +37,18 @@ User.create({
 	password: "password123"
 	})
 User.create({
-	name: "Declan",
-	email: "declan@gmail.com",
-	password: "password123"
-	})
-User.create({
-	name: "John",
-	email: "johntrandall@gmail.com",
-	password: "password123"
-	})
-User.create({
-	name: "Andrew",
-	email: "orangbanana@haha.com",
-	password: "password123"
-	})
-User.create({
-	name: "Ben",
-	email: "bensolo@gmail.com",
-	password: "password123"
-	})
-User.create({
-	name: "Dara",
-	email: "dara@gmail.com",
-	password: "password123"
-	})
-User.create({
-	name: "Jane",
-	email: "janebot@gmail.com",
-	password: "password123"
-	})
-User.create({
-	name: "PJ",
-	email: "pj@gmail.com",
+	name: "Declan V",
+	email: "declanv@gmail.com",
 	password: "password123"
 	})
 User.create({
 	name: "Milty",
 	email: "milty@gmail.com",
+	password: "password123"
+	})
+User.create({
+	name: "PJ",
+	email: "pj@gmail.com",
 	password: "password123"
 	})
 
@@ -227,20 +202,20 @@ Game.create({
 	rules: "If the ball goes out of bounds on any of the three bounces then the player who last shot or bounced must then throw the ball up again.  If a player is caught with the ball in their hand and feet on the ground, they forfeit their turn and any shot does not count. They must then throw the ball up for the next player.",
 	additional_information: "What you will need: one basketball, one basketball court"
 	})
-# Game.create({
-# 	name: 
-# 	ig_hash_tag: 
-# 	user_id: User.all.sample.id
-# 	photo: 
-# 	blurb: 
-# 	min_players: 
-# 	max_players: 
-# 	min_player_age: 
-# 	objective: 
-# 	gameplay: 
-# 	rules: 
-# 	additional_information: 
-# 	})
+Game.create({
+	name: "Shy and Seek",
+	ig_hash_tag: "hideandseek",
+	user_id: User.find_by_name("DECLAN V").id,
+	photo: "http://origincache-prn.fbcdn.net/10311203_1409574889322078_1577608890_n.jpg",
+	blurb: "Spin the kicked can, hide and go tag",
+	min_players: 4,
+	max_players: 12,
+	min_player_age: 13,
+	objective: "Hang out with neighborhood girls",
+	gameplay: "Players are arranged in a circle around a can. On the count of 3, players rush to the center, and kick the can, which is labelled with an arrow. The player to whom the can's arrow point is the kicker's target. The kicker then closes his/her eyes and counts to 10 while the other players hide. The kicker then must find the target player, and is rewarded with a kiss.",
+	rules: "None",
+	additional_information: "What you will need: a can with an arrow on it or a bottle"
+	})
 # Game.create({
 # 	name: 
 # 	ig_hash_tag: 
