@@ -1,0 +1,23 @@
+<h3>New User</h3>
+<%= form_for user do |f| %>
+  <p>
+    <%= f.text_field :name, { placeholder: "name" } %>
+  </p>
+  <p>
+    <%= f.text_field :email, { placeholder: "email" } %>
+  </p>
+  <p>
+    <%= f.password_field :password, { placeholder: "password" } %>
+  </p>
+    <p>
+      <%= f.password_field :password_confirmation, { placeholder: "password again" } %>
+    </p>
+  <p>
+    <%= f.text_area :bio, { placeholder: "bio" } %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+

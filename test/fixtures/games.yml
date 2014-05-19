@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ig_hash_tag: MyString
+  user_id: 1
+  min_players: 1
+  max_players: 1
+  blurb: MyString
+  objective: MyString
+  gameplay: MyText
+  rules: MyText
+  additional_information: MyText
+
+two:
+  name: MyString
+  ig_hash_tag: MyString
+  user_id: 1
+  min_players: 1
+  max_players: 1
+  blurb: MyString
+  objective: MyString
+  gameplay: MyText
+  rules: MyText
+  additional_information: MyText

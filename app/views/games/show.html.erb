@@ -1,0 +1,23 @@
+<% if @game %>
+<% user = User.find_by_id(@game.user_id) %>
+<% date = @game.created_at.to_s.split('')[0..9].join %>
+<article>
+	<h1><%= @game.name %></h1>
+	<h3><%= @game.blurb %></h3>
+	<div class="having_fun"><%= image_tag @game.photo %></div>
+	<p><%=@game.objective%></p>
+	<p>Minimum Players:<%=@game.min_players%></p>
+	<p>For ages <%=@game.min_player_age%> and up</p>
+	<p><%=@game.additional_information%></p>
+	<p>Gameplay: <%=@game.gameplay%></p>
+	<p>Rules: <%=@game.rules%></p>
+	<p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<a href="http://media1.giphy.com/media/Y8JFfZFHe9t6w/giphy.gif">3</a>)</p>
+</article>
+<% end %>
+<% if current_user %>
+<p>&nbsp;</p>
+<h4><a href="/users/favorites/<%=@game.id%>" %>[Add To Favorites]</a></h4>
+<% if current_user.id == user.id %>
+<h4><a href="/games/<%=@game.id%>/edit" %>Edit Game</a> | <a href="/games/<%=@game.id%>/delete" %>Delete Game</a></h4>
+<% end %>
+<% end %>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OffTheRoof</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="maincontent">
+
+<div class="span_1_of_2">
+
+<div id="container">
+
+<div id="header">
+	<h2>Off The Roof</h2>
+</div>
+
+<div id="content">
+<%= yield %>
+
+
+<footer <!-- class="clear_both" -->
+<div class="icon"><%= image_tag "balls.jpg" %></div>
+<div class="icon"><%= image_tag "balls.jpg" %></div>
+<div class="icon"><%= image_tag "balls.jpg" %></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div class="span_2_of_2">
+
+<div id="sidebar">
+	<%highlights = Game.all%>
+<div id="user_nav">
+  <% if current_user %>
+    Logged in as <a href="/users/<%=current_user.id%>" %><%= current_user.name %></a>.
+    <p></p>
+    <% %>
+    <h3><a href="/user/<%=current_user.id%>/home" %>Home</a> | <%= link_to "Log out", log_out_path %></h3>
+    <p>&nbsp;</p>
+  <% else %>
+    <%= link_to "Sign up", sign_up_path %> or
+    <%= link_to "Log in", log_in_path %>
+    <p>&nbsp;</p>
+
+  <% end %>
+</div>
+
+<% flash.each do |name, msg| %>
+<p>&nbsp;</p>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<p>&nbsp;</p>
+<% end %>
+
+<h4>Games</h4>
+<h3><a href="/games" %>[View All Games]</a></h3>
+<h3>NEWEST</h3>
+<p>&nbsp;</p>
+<p><a href="/games/<%=highlights[-1].id%>"><%=highlights[-1].name%></p></a>
+<p><a href="/games/<%=highlights[-2].id%>"><%=highlights[-2].name%></p></a>
+<p><a href="/games/<%=highlights[-3].id%>"><%=highlights[-3].name%></p></a>
+<p><a href="/games/<%=highlights[-4].id%>"><%=highlights[-4].name%></p></a>
+<p><a href="/games/<%=highlights[-5].id%>"><%=highlights[-5].name%></p></a>
+<p><a href="/games/<%=highlights[-6].id%>"><%=highlights[-6].name%></p></a>
+<p>&nbsp;</p>
+<h3>MOST LIKED</h3>
+<p>&nbsp;</p>
+<p><a href="/games/<%=highlights[0].id%>"><%=highlights[0].name%></p></a>
+<p><a href="/games/<%=highlights[1].id%>"><%=highlights[1].name%></p></a>
+<p><a href="/games/<%=highlights[2].id%>"><%=highlights[2].name%></p></a>
+<p><a href="/games/<%=highlights[3].id%>"><%=highlights[3].name%></p></a>
+<p><a href="/games/<%=highlights[4].id%>"><%=highlights[4].name%></p></a>
+<p><a href="/games/<%=highlights[5].id%>"><%=highlights[5].name%></p></a>
+
+<% if current_user %>
+<p>&nbsp;</p>
+<h4><a href="/new/games" %>[Add New Game]</a></h4>
+<% end %>
+
+<div class="icon"><%= image_tag "balls.jpg" %></div>
+<div class="icon"><%= image_tag "balls.jpg" %></div>
+<div class="icon"><%= image_tag "balls.jpg" %></div>
+
+
+</div><!-- sidebar -->
+
+</body>
+</html>

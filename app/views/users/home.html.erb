@@ -1,0 +1,30 @@
+<h1>Welcome <%= current_user.name %>!</h1>
+  <div class="icon"><%= image_tag "balls.jpg" %></div>
+
+<h2>Your Games</h2>
+<% Game.all.each do |game| %>
+<% date = game.created_at.to_s.split('')[0..9].join %>
+<% if game.user_id == @user.id %>
+<article>
+  <h1><a href="/games/<%=game.id%>"><%= game.name %></h1></a>
+  <h3><%=game.blurb%></h3>
+    <a href="/games/<%=game.id%>">
+  <div class="having_fun"><%= image_tag game.photo %></div></a>
+  <h4><a href="/games/<%=game.id%>/edit" %>Edit Game</a> | <a href="/games/<%=game.id%>/delete" %>Delete Game</a></h4>
+  <p class="metadata">Posted on <%= date %> / Likes(<a href="http://media1.giphy.com/media/Y8JFfZFHe9t6w/giphy.gif">3</a>)</p>
+</article>
+<%end%>
+<%end%>
+
+<h2>Favorited Games</h2>
+<% current_user.favorites.all.each do |favorite| %>
+<% game = Game.find_by_id(favorite.game_id) %>
+<% date = game.created_at.to_s.split('')[0..9].join %>
+<article>
+  <h1><a href="/games/<%=game.id%>"><%= game.name %></h1></a>
+  <h3><%=game.blurb%></h3>
+    <a href="/games/<%=game.id%>">
+  <div class="having_fun"><%= image_tag game.photo %></div></a>
+  <p class="metadata">Posted on <%= date %> / Likes(<a href="http://media1.giphy.com/media/Y8JFfZFHe9t6w/giphy.gif">3</a>)</p>
+</article>
+    <% end %>

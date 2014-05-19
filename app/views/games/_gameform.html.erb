@@ -1,0 +1,19 @@
+<%= form_for game_local do |f| %>
+  <%= f.text_field :name, { placeholder: "name" } %>
+  <%= f.text_field :ig_hash_tag, { placeholder: "instagram hash tag" } %>
+  <%= f.text_field :blurb, { placeholder: "tagline" } %>
+  <p></p>
+  <%= f.text_field :min_players, { placeholder: "min number of players" } %>
+  <%= f.text_field :max_players, { placeholder: "max number of players" } %>
+  <%= f.text_field :min_player_age, { placeholder: "min age of players" } %>
+  <p></p>
+  <%= f.text_field :objective, { placeholder: "game objective" } %>
+  <%= f.text_field :gameplay, { placeholder: "gameplay" } %>
+  <%= f.text_field :rules, { placeholder: "game rules" } %>
+  <p></p>
+  <%= f.text_field :additional_information, { placeholder: "additional information" } %>
+  <%= f.text_field :photo, { placeholder: "photo url" } %>
+
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,16 @@
+	<% @games.each do |game| %>
+	<% user = User.find_by_id(game.user_id) %>
+	<% date = game.created_at.to_s.split('')[0..9].join %>
+<article>
+	<a href="/games/<%=game.id%>"><h1><%= game.name %></h1></a>
+	<h4><%= game.blurb %></h4>
+	<a href="/games/<%=game.id%>">
+	<div class="having_fun"><%= image_tag game.photo %></div></a>
+	<h3>Objective: <%=game.objective%></h3><p></p>
+	<p>Minimum Players:<%=game.min_players%></p>
+	<p>For ages <%=game.min_player_age%> and up</p>
+	<p><%=game.additional_information%></p>
+	<p><a href="/games/<%=game.id%>">MORE</a></p>
+	<p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<a href="http://media1.giphy.com/media/Y8JFfZFHe9t6w/giphy.gif">3</a>)</p>
+</article>
+		<% end %>
