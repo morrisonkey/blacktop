@@ -4,12 +4,42 @@
 }*/
 
 @font-face {
+    font-family: 'colored_crayonsregular';
+    src: url('colored_crayons.eot');
+    src: url('colored_crayons.eot?#iefix') format('embedded-opentype'),
+         url('colored_crayons.woff') format('woff'),
+         url('colored_crayons.ttf') format('truetype'),
+         url('colored_crayons.svg#colored_crayonsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
     font-family: 'eraserregular';
-    src: url('/vendor/assets/fonts/eraserregular.eot');
-    src: url('/vendor/assets/fonts/eraserregular.eot?#iefix') format('embedded-opentype'),
-         url('/vendor/assets/fonts/eraserregular.woff') format('woff'),
-         url('/vendor/assets/fonts/eraserregular.ttf') format('truetype'),
-         url('/vendor/assets/fonts/eraserregular.svg#eraserregular') format('svg');
+    src: url('eraserregular.eot');
+    src: url('eraserregular.eot?#iefix') format('embedded-opentype'),
+         url('eraserregular.woff') format('woff'),
+         url('eraserregular.ttf') format('truetype'),
+         url('eraserregular.svg#eraserregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'chalkpatregular';
+    src: url('chalkpat.eot');
+    src: url('chalkpat.eot?#iefix') format('embedded-opentype'),
+         url('chalkpat.woff') format('woff'),
+         url('chalkpat.ttf') format('truetype'),
+         url('chalkpat.svg#chalkpatregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -34,16 +64,16 @@
   color: #E41B2D;
   line-height: 3px;
   font-size: 22px;
-  width:230px;
+  width:228px;
   height:280px;
   box-shadow: 10px 10px 5px RGBA(12, 8, 48, .8);
 }
 
 .poloroid img {
-	margin-top: 16px;
+	margin-top: 11px;
 	margin-left: 0px;
-  width: 205px;
-  height: 210px;
+  width: 210px;
+  height: 215px;
   text-align: center;
 }
 
@@ -109,7 +139,6 @@ body {
 	background-image: url('fence.jpg');
 	background-position: contain;
 	background-attachment: fixed;
-	font-family: 'eraserregular';
 }
 
 h2 {
@@ -138,14 +167,28 @@ h4 {
 	margin: auto;
 }
 
+h1, h5 {
+  font-family: 'eraserregular';
+	letter-spacing: 1px;
+}
+
+h5 {
+	color: RGBA(191, 220, 223, .9);
+	font-size: 100px;
+	margin: 50px;
+	letter-spacing: 5px;
+	text-align: center;
+}
+
 #header {
 	background-image: url('field.jpg');
-	background-size: contain;
-	text-align: center;
-	padding: 8px 0 30px 0;
-	border: solid 4px RGBA(243, 251, 255, .1);
+	background-position: center;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	border: solid 4px RGBA(243, 251, 255, .2);
 	border-radius: 10px;
-	margin-bottom: 30px;
+	margin: 30px auto;
+	padding: 10px;
 	line-height: 10px;
 }
 

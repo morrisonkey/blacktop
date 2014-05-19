@@ -14,9 +14,11 @@
 
 <div id="container">
 
-<div class="backing" id="header">
-	<h2>Blacktop</h2>
-</div>
+<a href="/games"><div class="backing" id="header">
+	<h5>BLACKTOP</h5>
+  <p>&nbsp;</p>
+  <h2>[create, share, and play games]</h2>
+</div></a>
 
 <div class="backing" id="content">
 <%= yield %>
@@ -48,7 +50,7 @@
 <% end %>
 
 <h4>Games</h4>
-<h3><a href="/games" %>[View All Games]</a></h3>
+<h3><a href="/games">[View All Games]</a></h3>
 <h3>NEWEST</h3>
 <p>&nbsp;</p>
 <p><a href="/games/<%=highlights[-1].id%>"><%=highlights[-1].name%></p></a>
@@ -74,8 +76,7 @@
 
 </div><!-- sidebar -->
 
-<div class="clear_both"> <!-- footer -->
-
+<footer <!-- class="clear_both" -->
 </div>
 
 </div>
