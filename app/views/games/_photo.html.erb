@@ -1,0 +1,20 @@
+<div class='gameboard'>
+  <h1>pick a picture for your game</h1>
+
+    <div class='photo_grid'>
+          <% TempPhoto.all.each do |photo| %>
+
+              <div class="poloroid">
+    <div class="leftup">
+                <img src='<%= photo.photo_url %>'>
+            </div>
+      <%= radio_button_tag :photo, photo.photo_url %>
+          </div>
+        <% end %>
+    </div>
+
+</div>
+
+
+    <%= hidden_field_tag :name, params[:name] %>
+    <%= hidden_field_tag :ig_hash_tag, params[:ig_hash_tag] %>

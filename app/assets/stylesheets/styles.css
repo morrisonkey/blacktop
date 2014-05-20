@@ -1,7 +1,3 @@
-/** {
-	border-width: 1px;
-	border-color: red;
-}*/
 
 @font-face {
     font-family: 'colored_crayonsregular';
@@ -45,42 +41,33 @@
 
 }
 
-.gameboard {
-  background: #009DE1;
-  color: red;
-  font-size: 30px;
-  max-width: 810px;
-  margin: auto;
-  border-radius: 20px;
-}
-
 .poloroid {
-	background-image: url('poloroid.png');
-	background-size: contain;
-	background-repeat: no-repeat;
-  float: left;
-  margin: 10px;
-  padding: 5px;
+  background-image: url('poloroid.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: right;
+  margin: auto;
+  margin: .5em;
+  padding: .3em;
   color: #E41B2D;
-  line-height: 3px;
-  font-size: 22px;
-  width:228px;
-  height:280px;
-  box-shadow: 10px 10px 5px RGBA(12, 8, 48, .8);
+  line-height: .3em;
+  font-size: 2.2em;
+  width: 9.1em;
+  height: 11.1em;
+  box-shadow: .3em .3em 1em RGBA(12, 8, 48, .8);
 }
 
 .poloroid img {
-	margin-top: 11px;
-	margin-left: 0px;
-  width: 210px;
-  height: 215px;
+	margin-top: .37em;
+	margin-left: 0;
+  width: 8.5em;
+  height: 8.7em;
   text-align: center;
 }
 
 .icon {
-	 width: 40px;
-	 height: 40px;
-	
+	 width: .4em;
+	 height: .4em;
 }
 
 .clear_both{
@@ -125,36 +112,34 @@ p {
 
 h1
 {
-	font-size: 30px;
-	text-align: right;
+	font-size: 2em;
+	text-align: center;
 	color: RGBA(191, 220, 223, 1);
 }
 
 body {
 	color: white;
-	font-size: 16px;
-	/*border: 2px;*/
+	font-size: 12px;
 	font-family: arial, helvetica;
-	/*background: RGBA(98, 98, 98, 1);*/
 	background-image: url('fence.jpg');
 	background-size: cover;
 	background-attachment: fixed;
-
 }
 
 h2 {
 	color: RGBA(191, 220, 223, 1);
-	font-size: 48px;
-	text-shadow: 1px 1px RGBA(246, 237, 206, 1);
+	font-size: 4em;
+	text-shadow: .1em .1em RGBA(0, 0, 0, 1);
 }
 
 h3 {
-	font-size: 14px;
+	font-size: 1.5em;
 	color: RGBA(191, 220, 223, 1);
 }
 
 h4 {
 	color: RGBA(191, 220, 223, 1);
+  font-size: 2em;
 }
 
 #wrapper {
@@ -181,46 +166,50 @@ h5 {
   text-align: center;
 }
 
+p {
+  font-size: 1.5em;
+}
+
 #header {
   background-image: url('field.jpg');
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
-  border: solid .3em RGBA(243, 251, 255, .2);
   border-radius: 1em;
-  margin: 1em auto;
-  padding: 1em;
-  line-height: .1em;
+  margin: .5em auto;
+  padding: .7em;
+  line-height: 0;
 }
 
 #content{
-  height: 50em;
+  height: 70em;
   overflow: auto;
 	background: RGBA(70, 145, 150, .9);
 	padding: 1.5em;
 	float: left;
-	border: solid .3em RGBA(243, 251, 255, .1);
 	border-radius: 1em;
+  width: 49em;
 }
 
 #content:hover{
-  height: 50em;
+  height: 70em;
   overflow: auto;
 	background: RGBA(70, 145, 150, .95);
 	padding: 1.5em;
 	float: left;
-	border: solid .3em RGBA(243, 251, 255, .1);
 	border-radius: 1em;
+  width: 49em;
 }
 
 #sidebar{
-  height: 50em;
+  height: 70em;
+  overflow: auto;
 	background: RGBA(19, 28, 83, .9);
-	line-height: .5em;
+	line-height: 1.5em;
 	padding: 1.5em;
-	border: solid .3em RGBA(243, 251, 255, .1);
 	border-radius: 1em;
 	float: right;
+  width: 14em;
 }
 
 .leftup {
@@ -229,8 +218,8 @@ h5 {
 
 article{
 	/*border-color: black;*/
-	width: 45em;
-	text-align: right;
+	width: 48em;
+	text-align: left ;
 	min-height: 30em;
 	color:  RGBA(70, 145, 150, .85);
 }
@@ -244,8 +233,7 @@ article{
 }
 
 
-footer {
-	padding: 3em;
+.page_footer {
 	text-align: center;
 	clear: both;
 }

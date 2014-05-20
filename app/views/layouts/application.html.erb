@@ -49,29 +49,24 @@
 <p>&nbsp;</p>
 <% end %>
 
-<h4>Games</h4>
-<h3><a href="/games">[View All Games]</a></h3>
-<h3>NEWEST</h3>
+<h3><a href="/games">[view all games]</a></h3>
 <p>&nbsp;</p>
+<h3>NEWEST</h3>
 <p><a href="/games/<%=highlights[-1].id%>"><%=highlights[-1].name%></p></a>
 <p><a href="/games/<%=highlights[-2].id%>"><%=highlights[-2].name%></p></a>
 <p><a href="/games/<%=highlights[-3].id%>"><%=highlights[-3].name%></p></a>
 <p><a href="/games/<%=highlights[-4].id%>"><%=highlights[-4].name%></p></a>
-<p><a href="/games/<%=highlights[-5].id%>"><%=highlights[-5].name%></p></a>
-<p><a href="/games/<%=highlights[-6].id%>"><%=highlights[-6].name%></p></a>
 <p>&nbsp;</p>
 <h3>MOST LIKED</h3>
-<p>&nbsp;</p>
 <p><a href="/games/<%=highlights[0].id%>"><%=highlights[0].name%></p></a>
 <p><a href="/games/<%=highlights[1].id%>"><%=highlights[1].name%></p></a>
 <p><a href="/games/<%=highlights[2].id%>"><%=highlights[2].name%></p></a>
 <p><a href="/games/<%=highlights[3].id%>"><%=highlights[3].name%></p></a>
 <p><a href="/games/<%=highlights[4].id%>"><%=highlights[4].name%></p></a>
-<p><a href="/games/<%=highlights[5].id%>"><%=highlights[5].name%></p></a>
 
 <% if current_user %>
 <p>&nbsp;</p>
-<h4><a href="/new/games" %>[Add New Game]</a></h4>
+<h3><%= link_to "[add new game]", games_new_path %></h3>
 <% end %>
 
 </div><!-- sidebar -->

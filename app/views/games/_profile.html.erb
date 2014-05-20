@@ -1,0 +1,21 @@
+  <h4> Write a Quick and Fun Tagline For Your Game  </h4>
+  <%= text_field_tag :blurb %>
+  <h4>How Many Players Are Required to Play Your Game?</h4>
+  <%= text_field_tag :min_players %>
+  <h4>(Leave Blank if Everyone Can Play Your Game At Once!)</h4>
+  <%= text_field_tag :max_players %>
+  <h4>How Old Must Players Be to Play Your Game?</h4>
+  <%= text_field_tag :min_player_age %>
+  <h4> What is the Objective of Your Game? </h4>
+  <%= text_area_tag :objective%>
+  <h4> Describe the Gameplay of Your Game (Don't Miss Any Details!) </h4>
+  <%= text_area_tag :gameplay %>
+  <h4> List All the Rules of Your Game </h4>
+  <%= text_area_tag :rules %>
+  <h4> What Materials do you Need to Play Your Game? </h4>
+  <%= text_area_tag :additional_information %>
+  <h4></h4>
+  <%= hidden_field_tag :name, params[:name] %>
+  <%= hidden_field_tag :ig_hash_tag, params[:ig_hash_tag] %>
+  <%= hidden_field_tag :photo, params[:photo] %>
+  <%= hidden_field_tag :user_id, current_user.id %>

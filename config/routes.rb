@@ -4,14 +4,15 @@ Rails.application.routes.draw do
 
   get '/games' => 'games#index'
 
+ 
+  # get '/games/:user_id/new' => 'games#new', as: :game
+  get '/games/new' => 'games#new'
+  post '/games/new' => 'games#new'
   get '/games/:id' => 'games#show', as: :game
 
-  # get '/games/:user_id/new' => 'games#new', as: :game
-  get '/new/games' => 'games#new'
-
-  get '/add_photo/games/:game_id' => 'games#add_photo'
+  # get '/add_photo/games/:game_id' => 'games#add_photo'
   
-  get '/games/generate/:name/:game_id' => 'games#generate'
+  # get '/games/generate/:name/:game_id' => 'games#generate'
   
   post '/games' => 'games#create'
 
