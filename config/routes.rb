@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
   get '/users/favorites/:id' => 'users#favorite'
 
+  get 'users/unlike/:id' => 'users#unlike'
+
   # post '/login/user' => "users#process_login"
 
   # get '/user/logout' => "users#end_session"

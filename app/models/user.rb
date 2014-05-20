@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   def remove_favorite(game_id)
 
-    game = Favorite.find_by_user_id_and_game_id(current_user.id, game_id)
+    game = Favorite.find_by_user_id_and_game_id(self.id, game_id)
     game.destroy
 
   end

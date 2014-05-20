@@ -25,7 +25,6 @@ class GamesController < ApplicationController
 
 	def edit
 		@game = Game.find(params[:id])
-		render partial: "gameform", locals: { game_local: @game, user_id: @game.user_id }
 	end
 
 	def update

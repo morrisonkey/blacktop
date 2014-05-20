@@ -1,4 +1,6 @@
-<%= form_for @game, url: "/games", method: "POST" do |f| %>
+
+<%= form_for @game do |f| %>
+    <h4><%=@game.name%></h4>
   <h4> What is the Name of Your Game? </h4>
   <%= f.text_field :name, :size => 50%>
   <h4> Add One Keyword to Describe What Your Game is Most Like (No Spaces!)</h4>
@@ -19,7 +21,10 @@
   <%= f.text_area(:rules, :size => "50x10") %>
   <h4> What Materials do you Need to Play Your Game? </h4>
   <%= f.text_area(:additional_information, :size => "50x10") %>
+  <h4>Add An Image Url for Your Game</h4>
+  <%= f.text_field :photo, :size => 50%>
   <h4></h4>
+
   <%= f.hidden_field :user_id, {value: current_user.id} %>
 
   <%= f.submit %>

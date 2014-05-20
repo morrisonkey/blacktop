@@ -1,7 +1,7 @@
 <h1>Welcome <%= current_user.name %>!</h1>
   <div class="icon"><%= image_tag "balls.jpg" %></div>
 
-<h2>Your Games</h2>
+<h2>[your games]</h2>
 <% Game.all.each do |game| %>
 <% date = game.created_at.to_s.split('')[0..9].join %>
 <% if game.user_id == @user.id %>
@@ -17,7 +17,7 @@
 <%end%>
 <%end%>
 
-<h2>Favorited Games</h2>
+<h2>[games you like]</h2>
 <% current_user.favorites.all.each do |favorite| %>
 <% game = Game.find_by_id(favorite.game_id) %>
 <% date = game.created_at.to_s.split('')[0..9].join %>
