@@ -137,8 +137,9 @@ body {
 	font-family: arial, helvetica;
 	/*background: RGBA(98, 98, 98, 1);*/
 	background-image: url('fence.jpg');
-	background-position: contain;
+	background-size: cover;
 	background-attachment: fixed;
+
 }
 
 h2 {
@@ -164,54 +165,59 @@ h4 {
 
 #container {
 	width: 70em;
-	margin: auto;
+  margin: auto;
 }
 
 h1, h5 {
   font-family: 'eraserregular';
-	letter-spacing: .2em;
+  letter-spacing: .2em;
 }
 
 h5 {
-	color: RGBA(100, 170, 180, .9);
-	font-size: 8em;
-	margin: .5em;
-	letter-spacing: .1em;
-	text-align: center;
+  color: RGBA(100, 170, 180, .9);
+  font-size: 8em;
+  margin: .5em;
+  letter-spacing: .1em;
+  text-align: center;
 }
 
 #header {
-	background-image: url('field.jpg');
-	background-position: center;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	border: solid .3em RGBA(243, 251, 255, .2);
-	border-radius: 1em;
-	margin: 1em auto;
-	padding: 1em;
-	line-height: .1em;
+  background-image: url('field.jpg');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border: solid .3em RGBA(243, 251, 255, .2);
+  border-radius: 1em;
+  margin: 1em auto;
+  padding: 1em;
+  line-height: .1em;
 }
 
 #content{
+  height: 50em;
+  overflow: auto;
 	background: RGBA(70, 145, 150, .9);
-	padding: 1.7em;
+	padding: 1.5em;
 	float: left;
 	border: solid .3em RGBA(243, 251, 255, .1);
 	border-radius: 1em;
 }
 
 #content:hover{
+  height: 50em;
+  overflow: auto;
 	background: RGBA(70, 145, 150, .95);
-	padding: 1.7em;
+	padding: 1.5em;
 	float: left;
 	border: solid .3em RGBA(243, 251, 255, .1);
 	border-radius: 1em;
 }
 
 #sidebar{
+  height: 50em;
 	background: RGBA(19, 28, 83, .9);
 	line-height: .5em;
-	padding: 1.3em;
+	padding: 1.5em;
 	border: solid .3em RGBA(243, 251, 255, .1);
 	border-radius: 1em;
 	float: right;
