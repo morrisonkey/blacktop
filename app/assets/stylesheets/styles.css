@@ -132,7 +132,7 @@ h1
 
 body {
 	color: white;
-	font-size: 14px;
+	font-size: 16px;
 	/*border: 2px;*/
 	font-family: arial, helvetica;
 	/*background: RGBA(98, 98, 98, 1);*/
@@ -163,20 +163,20 @@ h4 {
 }
 
 #container {
-	width: 950px;
+	width: 70em;
 	margin: auto;
 }
 
 h1, h5 {
   font-family: 'eraserregular';
-	letter-spacing: 1px;
+	letter-spacing: .2em;
 }
 
 h5 {
-	color: RGBA(191, 220, 223, .9);
-	font-size: 100px;
-	margin: 50px;
-	letter-spacing: 5px;
+	color: RGBA(100, 170, 180, .9);
+	font-size: 8em;
+	margin: .5em;
+	letter-spacing: .1em;
 	text-align: center;
 }
 
@@ -185,66 +185,61 @@ h5 {
 	background-position: center;
 	background-size: 100%;
 	background-repeat: no-repeat;
-	border: solid 4px RGBA(243, 251, 255, .2);
-	border-radius: 10px;
-	margin: 30px auto;
-	padding: 10px;
-	line-height: 10px;
+	border: solid .3em RGBA(243, 251, 255, .2);
+	border-radius: 1em;
+	margin: 1em auto;
+	padding: 1em;
+	line-height: .1em;
 }
 
 #content{
-	background: RGBA(20, 30, 85, .9);
-	padding: 20px;
+	background: RGBA(70, 145, 150, .9);
+	padding: 1.7em;
 	float: left;
-	border: solid 4px RGBA(243, 251, 255, .1);
-	border-radius: 10px;
+	border: solid .3em RGBA(243, 251, 255, .1);
+	border-radius: 1em;
 }
 
 #content:hover{
-	background: RGBA(20, 30, 85, .95);
-	padding: 20px;
+	background: RGBA(70, 145, 150, .95);
+	padding: 1.7em;
 	float: left;
-	border: solid 4px RGBA(243, 251, 255, .1);
-	border-radius: 10px;
+	border: solid .3em RGBA(243, 251, 255, .1);
+	border-radius: 1em;
 }
 
 #sidebar{
-	background: RGBA(70, 145, 150, .85);
-	float: right;
+	background: RGBA(19, 28, 83, .9);
 	line-height: .5em;
-	padding: 20px;
-	border: solid 4px RGBA(243, 251, 255, .1);
-	border-radius: 10px;
-}
-
-#sidebar img{
-	padding: 10px 0;
+	padding: 1.3em;
+	border: solid .3em RGBA(243, 251, 255, .1);
+	border-radius: 1em;
+	float: right;
 }
 
 .leftup {
 	text-align: center;
-
 }
 
 article{
 	/*border-color: black;*/
-	width: 600px;
+	width: 45em;
 	text-align: right;
-	min-height: 400px;
+	min-height: 30em;
 	color:  RGBA(70, 145, 150, .85);
 }
 
 .metadata{
 	border-top: dotted;
 	border-bottom: solid;
-	border-width: 1px;
-	border-color: RGBA(70, 145, 150, 1);
-	line-height: 35px;
+	border-width: .15em;
+	border-color: RGBA(19, 28, 83, 1);
+	line-height: 2.5em;
 }
 
 
 footer {
-	padding: 30px;
+	padding: 3em;
 	text-align: center;
 	clear: both;
 }

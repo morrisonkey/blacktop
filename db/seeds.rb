@@ -54,6 +54,59 @@ User.create({
 
 
 Game.create({
+	name: "Off The Roof",
+	ig_hash_tag: "offtheroof",
+	user_id: User.find_by_name("CYROUS").id,
+	photo: "http://2.bp.blogspot.com/_aofQsCOJd-w/TQ_zQpGGVvI/AAAAAAAAAkU/3HpGcFsujrU/s1600/DSC_0956.jpg",
+	blurb: "Football meets wallball",
+	min_players: 3,
+	min_player_age: 12,
+	objective: "Catch the football and run it to the endzone.",
+	gameplay: "A group gathers under the slant of a 2-3 story roof. One player throws the ball towards the middle of the roof. While waiting for the ball to return, box out your opponents. The person who catches the ball when it bounces off the roof must then turn and run towards the endzone. All other players must try to stop the ball-holder from making it to the endzone. Crossing the endzone with the ball gives you a score. First person to reach the alloted amount of points wins (total point count is agreed upon by all players)",
+	rules: "If you get tackled, you lose",
+	additional_information: "What you will need: Nerf football, a slanted roof (careful of large gutters)"
+	})
+Game.create({
+	name: "Cyopoly",
+	ig_hash_tag: "cyopoly",
+	user_id: User.find_by_name("CYROUS").id,
+	photo: "http://www.rjhorne.com/Photos/Geophysical%20Exploration/Indian-Ocean_American_Salon_Playing-Monopoly.jpg",
+	blurb: "Modified Monopoly",
+	min_players: 2,
+	min_player_age: 8,
+	objective: "Be the last mogul standing. Bankrupt all other players.",
+	gameplay: "Same gameplay as monopoly.",
+	rules: "Added rules: 1. Craps: If a player lands on GO then they must challenge one other player to roll craps for a property, winner takes all. Each players property up for grabs is chosen by the oposing player (properties with houses/hotels on them or their ajoined color spaces are off limits). The person whos piece is on GO rolls first. First person to roll a 7 wins both properties.
+	2. Lucky Sevens: If a player rolls seven at any time during their turn they are entitled to $100 dollars from the bank. In order to recieve this they must ask the banker for it verbally before the turn is through.
+	3. Earnest-Goes-To-Jail: If a player lands on 'Just Visiting' while the Jail is occupied by another player, the two players switch places. If there are more than one players in jail then the one who has been in longest is set free in the switch.
+	4. Free Parking Lotto: At the beginning of the game $500 is placed in center of board. When someone lands on Free Parking they recieve that bill along with whatever taxes/fees have been collected and placed in the center in normal gameplay. Once the first person collects Free Parking Lotto the banker will place a $100 bill in the center for the next collection. This practice will continue in one bill increments everytime counting down until the $1 bill ($ 500, 100, 50, 20, 10, 5, 1). After a 1 dollar bill has been placed onto the board and collected by a Free Parker the banker starts back at $500 placing one bill in the center everytime a player lands on Free Parking."
+	})
+Game.create({
+	name: "3 Bounce",
+	ig_hash_tag: "3bounce",
+	user_id: User.find_by_name("MILTY").id,
+	photo: "http://s3.amazonaws.com/rapgenius/1367161689_spring_basketball.jpg",
+	blurb: "Don't Get Caught Flat Footed",
+	min_players: 2,
+	min_player_age: 7,
+	objective: "Be the first to score the set amount of points established by all players (usually 5, 7, or 10)",
+	gameplay: "The number of players is established and an order of rotation is created and agreed upon. Whoever goes last tosses the basketball in the air for player 1 who then has up to and including 3 bounces to catch the ball, in the air, without being flat footed (feet on the ground) and shooting the ball into the basket to score a point. If the ball does not score, the next player in the rotation has the option to 'tip in' the miss for a point or let the ball hit the ground for their maximum of 3 bounces to attempt their own shot. Players do not have to attempt a basket, if it is not attainable, and can use strategy to throw the ball in an area to make it harder for the next player to score without the ball going out of bounds.",
+	rules: "If the ball goes out of bounds on any of the three bounces then the player who last shot or bounced must then throw the ball up again.  If a player is caught with the ball in their hand and feet on the ground, they forfeit their turn and any shot does not count. They must then throw the ball up for the next player.",
+	additional_information: "What you will need: one basketball, one basketball court"
+	})
+Game.create({
+	name: "Rock-Paper-Scissors-Lizard-Spock",
+	ig_hash_tag: "rockpaperscissorslizardspock",
+	user_id: User.find_by_name("OMAR").id,
+	photo: "http://flavorwire.files.wordpress.com/2011/11/rock.jpg?w=600&h=315",
+	blurb: "Live long and prosper.",
+	min_players: 2,
+	objective: "Out-wit your opponent",
+	gameplay: "Your average game of Rock-Paper-Scissors, but with some bonus rules",
+	rules: "Scissors cut paper, Paper covers rock, Rock crushes lizard, Lizard poisons Spock, Spock smashes scissors, Scissors decapitate lizard, Lizard eats paper, Paper disproves Spock, Spock vaporizes rock, Rock crushes scissors",
+	additional_information: "What you will need: Hands"
+	})
+Game.create({
 	name: "Calvinball",
 	ig_hash_tag: "calvinball",
 	user_id: User.find_by_name("OMAR").id,
@@ -108,18 +161,6 @@ Game.create({
 	additional_information: "What you will need: A stream/river, A bridge, A stick for each player"
 	})
 Game.create({
-	name: "Rock-Paper-Scissors-Lizard-Spock",
-	ig_hash_tag: "rockpaperscissorslizardspock",
-	user_id: User.find_by_name("OMAR").id,
-	photo: "http://flavorwire.files.wordpress.com/2011/11/rock.jpg?w=600&h=315",
-	blurb: "Live long and prosper.",
-	min_players: 2,
-	objective: "Out-wit your opponent",
-	gameplay: "Your average game of Rock-Paper-Scissors, but with some bonus rules",
-	rules: "Scissors cut paper, Paper covers rock, Rock crushes lizard, Lizard poisons Spock, Spock smashes scissors, Scissors decapitate lizard, Lizard eats paper, Paper disproves Spock, Spock vaporizes rock, Rock crushes scissors",
-	additional_information: "What you will need: Hands"
-	})
-Game.create({
 	name: "Scrabbleship",
 	ig_hash_tag: "scrabbleship",
 	user_id: User.find_by_name("KEYAN").id,
@@ -160,47 +201,6 @@ Everyone on the outside of the circle throws tennis balls at the volunteer.
 
 Anyone who caught a Jiggle Rebound may step up to the death line (at the perimeter of the circle) and throw one last ball at the target.",
 	additional_information: "What you will need: Tennis balls, Chalk"
-	})
-Game.create({
-	name: "Off The Roof",
-	ig_hash_tag: "offtheroof",
-	user_id: User.find_by_name("CYROUS").id,
-	photo: "http://2.bp.blogspot.com/_aofQsCOJd-w/TQ_zQpGGVvI/AAAAAAAAAkU/3HpGcFsujrU/s1600/DSC_0956.jpg",
-	blurb: "Football meets wallball",
-	min_players: 3,
-	min_player_age: 12,
-	objective: "Catch the football and run it to the endzone.",
-	gameplay: "A group gathers under the slant of a 2-3 story roof. One player throws the ball towards the middle of the roof. While waiting for the ball to return, box out your opponents. The person who catches the ball when it bounces off the roof must then turn and run towards the endzone. All other players must try to stop the ball-holder from making it to the endzone. Crossing the endzone with the ball gives you a score. First person to reach the alloted amount of points wins (total point count is agreed upon by all players)",
-	rules: "If you get tackled, you lose",
-	additional_information: "What you will need: Nerf football, a slanted roof (careful of large gutters)"
-	})
-Game.create({
-	name: "Cyopoly",
-	ig_hash_tag: "cyopoly",
-	user_id: User.find_by_name("CYROUS").id,
-	photo: "http://www.rjhorne.com/Photos/Geophysical%20Exploration/Indian-Ocean_American_Salon_Playing-Monopoly.jpg",
-	blurb: "Modified Monopoly",
-	min_players: 2,
-	min_player_age: 8,
-	objective: "Be the last mogul standing. Bankrupt all other players.",
-	gameplay: "Same gameplay as monopoly.",
-	rules: "Added rules: 1. Craps: If a player lands on GO then they must challenge one other player to roll craps for a property, winner takes all. Each players property up for grabs is chosen by the oposing player (properties with houses/hotels on them or their ajoined color spaces are off limits). The person whos piece is on GO rolls first. First person to roll a 7 wins both properties.
-	2. Lucky Sevens: If a player rolls seven at any time during their turn they are entitled to $100 dollars from the bank. In order to recieve this they must ask the banker for it verbally before the turn is through.
-	3. Earnest-Goes-To-Jail: If a player lands on 'Just Visiting' while the Jail is occupied by another player, the two players switch places. If there are more than one players in jail then the one who has been in longest is set free in the switch.
-	4. Free Parking Lotto: At the beginning of the game $500 is placed in center of board. When someone lands on Free Parking they recieve that bill along with whatever taxes/fees have been collected and placed in the center in normal gameplay. Once the first person collects Free Parking Lotto the banker will place a $100 bill in the center for the next collection. This practice will continue in one bill increments everytime counting down until the $1 bill ($ 500, 100, 50, 20, 10, 5, 1). After a 1 dollar bill has been placed onto the board and collected by a Free Parker the banker starts back at $500 placing one bill in the center everytime a player lands on Free Parking."
-	})
-Game.create({
-	name: "3 Bounce",
-	ig_hash_tag: "3bounce",
-	user_id: User.find_by_name("MILTY").id,
-	photo: "http://s3.amazonaws.com/rapgenius/1367161689_spring_basketball.jpg",
-	blurb: "Don't Get Caught Flat Footed",
-	min_players: 2,
-	min_player_age: 7,
-	objective: "Be the first to score the set amount of points established by all players (usually 5, 7, or 10)",
-	gameplay: "The number of players is established and an order of rotation is created and agreed upon. Whoever goes last tosses the basketball in the air for player 1 who then has up to and including 3 bounces to catch the ball, in the air, without being flat footed (feet on the ground) and shooting the ball into the basket to score a point. If the ball does not score, the next player in the rotation has the option to 'tip in' the miss for a point or let the ball hit the ground for their maximum of 3 bounces to attempt their own shot. Players do not have to attempt a basket, if it is not attainable, and can use strategy to throw the ball in an area to make it harder for the next player to score without the ball going out of bounds.",
-	rules: "If the ball goes out of bounds on any of the three bounces then the player who last shot or bounced must then throw the ball up again.  If a player is caught with the ball in their hand and feet on the ground, they forfeit their turn and any shot does not count. They must then throw the ball up for the next player.",
-	additional_information: "What you will need: one basketball, one basketball court"
 	})
 Game.create({
 	name: "Shy and Seek",
