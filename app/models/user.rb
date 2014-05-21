@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :games
   has_many :games, through: :favorites
   has_many :favorites
+  has_many :comments
   
 
   before_validation :downcase_email, :upcase_name

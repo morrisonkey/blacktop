@@ -2,7 +2,7 @@ class GamesController < ApplicationController
 
 	# before_action :authenticate_with_basic_auth
 	# before_save :process_tags
-	# before_action :require_login, only: [:create, :new, :edit, :update, :delete]
+	before_action :require_login, only: [:edit, :update, :delete]
 
 	def new
 		if params[:commit] == "add tag"
@@ -22,10 +22,33 @@ class GamesController < ApplicationController
 				@tags << new_tag.name
 			else
 				@tags = TagHelper.process_tags(params[:tag_list] || "")
-				newtag = Tag.find_by_id(params[:tag])
-				@tags << newtag.name
+				new_tag = Tag.find_by_id(params[:tag])
+				@tags << new_tag.name
 			end
 			@tag_list = @tags.uniq.sort.join(",")
+
+			# update the game
+		elsif params[:commit] == "add item"
+
+			# taggable section of game creation
+
+			# parse tag list
+			@page = 4
+			if params[:new_item].chomp != ""
+				item_name = params[:new_item].chomp
+				if Item.find_by_name(item_name)
+					new_item = Item.find_by_name(item_name)
+				else
+					new_item = Item.create(:name => item_name)
+				end
+				@items = TagHelper.process_tags(params[:item_list] || "")
+				@items << new_item.name
+			else
+				@items = TagHelper.process_tags(params[:item_list] || "")
+				new_item = Item.find_by_id(params[:item])
+				@items << new_item.name
+			end
+			@item_list = @items.uniq.sort.join(",")
 
 			# update the game
 		elsif params[:name]
@@ -34,18 +57,28 @@ class GamesController < ApplicationController
 			@page = 1
 		end
 			if @page == 2
-				add_photo(params[:ig_hash_tag])
+				add_photo(params[:ig_hash_tag].gsub(" ",""))
 			elsif @page == 3 && params[:commit] != "add tag"
 				@tag_list = "#{params[:ig_hash_tag]}"
-			elsif @page >= 5
+			elsif @page >= 6
 				game = create
-				@tags = TagHelper.process_tags(params[:tag_list] || "")
-				@tags.each do |tag_name|
+				tags = TagHelper.process_tags(params[:tag_list] || "")
+				items = TagHelper.process_tags(params[:item_list] || "")
+				tags.each do |tag_name|
 					tag = Tag.find_by_name(tag_name)
 					if tag != nil
 					GameTag.create(
       		:game_id => game.id,
       		:tag_id => tag.id
+      		)
+					end
+				end
+				items.each do |item_name|
+					item = Item.find_by_name(item_name)
+					if item != nil
+					GameItem.create(
+      		:game_id => game.id,
+      		:item_id => item.id
       		)
 					end
 				end
@@ -87,6 +120,8 @@ class GamesController < ApplicationController
 	def show
 		@game = Game.find_by_id(params[:id])
 		@user = current_user
+		@comment = Comment.new
+		@comments = @game.comments
 	end
 
 	def edit

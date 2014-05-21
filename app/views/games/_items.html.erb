@@ -1,0 +1,18 @@
+  <h2>Add an item!</h2>
+  <p>Choose from existing items: <%= select_tag(:item, options_from_collection_for_select(Item.all, :id, :name)) %></p>
+  <p>Create a new item: <%= text_field_tag :new_item, "" %></p>
+  <p><%= submit_tag "add item" %></p>
+
+  <p>[current items]</p>
+  <% if @item_list %>
+  <%= item_array = @item_list.split(",") %>
+  <% item_array.each do |item| %>
+  <p><%= item %></p>
+  <% end %>
+  <%= hidden_field_tag :item_list, @item_list %>
+  <% end %>
+
+  <%= hidden_field_tag :name, params[:name] %>
+  <%= hidden_field_tag :ig_hash_tag, params[:ig_hash_tag] %>
+  <%= hidden_field_tag :photo, params[:photo] %>
+  <%= hidden_field_tag :tag_list, params[:tag_list] %>

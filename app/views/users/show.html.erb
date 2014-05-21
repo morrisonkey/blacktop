@@ -1,6 +1,5 @@
-<h2>Games by <%= @user.name %>
-	<div class="icon"><%= image_tag "balls.jpg" %></div></h2>
-
+<h2>Games by <%= @user.name %></h2>
+<p>&nbsp;</p>
 <% Game.all.each do |game| %>
 <% date = game.created_at.to_s.split('')[0..9].join %>
 <% if game.user_id == @user.id %>

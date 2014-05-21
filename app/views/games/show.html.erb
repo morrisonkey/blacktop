@@ -10,9 +10,12 @@
 <% end %>
 <% end %>
 <% end %>
+<% if current_user && current_user.id == user.id %>
+<h4><a href="/games/<%=@game.id%>/edit" %>Edit Game</a> | <a href="/games/<%=@game.id%>/delete" %>Delete Game</a></h4>
+<% end %>
 <article>
 	<h1><%= @game.name %></h1>
-	<h3><%= @game.blurb %></h3>
+	<h3>[ <%= @game.blurb.downcase %> ]</h3>
 	<div class="poloroid">
 		<div class="leftup"><%= image_tag @game.photo %></div></div>
 		<p>&nbsp;</p>
@@ -36,8 +39,19 @@
 <% else %>
 <a href="/users/favorites/<%=@game.id%>" %><%= image_tag("like2.jpg", :size => "84x84")%></a>
 <% end %>
-<% if current_user.id == user.id %>
-<h4><a href="/games/<%=@game.id%>/edit" %>Edit Game</a> | <a href="/games/<%=@game.id%>/delete" %>Delete Game</a></h4>
+<% end %>
 
+<h4>[ comments ]</h4>
+<% @comments.each do |comment| %>
+<div class="metadata"><a href="/users/<%=comment.user.id%>" %><%= comment.user.name %>:</a><p>&emsp;&emsp;&emsp;<%=comment.body%></p></div>
+<% if current_user && current_user.id == comment.user.id %>
+<a href="/comments/<%=comment.id%>/delete" %>Delete Comment</a>
 <% end %>
+	<%end%>
+	<p>&nbsp;</p>
+	<h4>[ add a comment ]</h4>
+<%= form_for [@game, @comment] do |f| %>
+<%= f.text_area :body, placeholder: "write your comment here", size: "70x5" %>
+<%= f.submit %>
 <% end %>
+

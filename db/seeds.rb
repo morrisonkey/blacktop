@@ -1,55 +1,225 @@
 #encoding: utf-8
 
-Game.delete_all
-User.delete_all
-Favorite.delete_all
+# Game.delete_all
+# User.delete_all
+# Favorite.delete_all
+# Comment.delete_all
+# Tag.delete_all
+# Item.delete_all
 
+Tag.create({
+	name: "outdoor"
+	})
+Tag.create({
+	name: "indoor"
+	})
+Tag.create({
+	name: "multiplayer"
+	})
+Tag.create({
+	name: "singleplayer"
+	})
+Tag.create({
+	name: "football"
+	})
+Tag.create({
+	name: "baseball"
+	})
+Tag.create({
+	name: "basketball"
+	})
+Tag.create({
+	name: "recreational"
+	})
+Tag.create({
+	name: "card"
+	})
+Tag.create({
+	name: "billiards"
+	})
+Tag.create({
+	name: "contact"
+	})
+Tag.create({
+	name: "competative"
+	})
+Tag.create({
+	name: "non-competative"
+	})
+Tag.create({
+	name: "all-ages"
+	})
+Tag.create({
+	name: "over 21 years"
+	})
+Tag.create({
+	name: "under 21 years"
+	})
+
+
+Item.create({
+	name: "baseball"
+})
+Item.create({
+	name: "baseball bat"
+})
+Item.create({
+	name: "basketball"
+})
+Item.create({
+	name: "soccer ball"
+})
+Item.create({
+	name: "hockey stick"
+})
+Item.create({
+	name: "nerf football"
+})
+Item.create({
+	name: "basketball net"
+})
+Item.create({
+	name: "baseball glove"
+})
+Item.create({
+	name: "roller blades"
+})
+Item.create({
+	name: "soccer goal"
+})
+Item.create({
+	name: "playing cards"
+})
+Item.create({
+	name: "tennis ball"
+})
+Item.create({
+	name: "tennis racket"
+})
+Item.create({
+	name: "ping-pong ball"
+})
+Item.create({
+	name: "ping-pong paddle"
+})
+Item.create({
+	name: "swimming pool"
+})
+Item.create({
+	name: "beach ball"
+})
+Item.create({
+	name: "volley ball"
+})
+Item.create({
+	name: "volleyball net"
+})
+Item.create({
+	name: "wall"
+})
+Item.create({
+	name: "roof"
+})
+Item.create({
+	name: "hockey puck"
+})
+Item.create({
+	name: "skateboard"
+})
+Item.create({
+	name: "bases"
+})
+Item.create({
+	name: "croquet mallet"
+})
+Item.create({
+	name: "tennis net"
+})
+Item.create({
+	name: "frisbee"
+})
+Item.create({
+	name: "softball"
+})
+Item.create({
+	name: "golf ball"
+})
+Item.create({
+	name: "bicycle"
+})
+Item.create({
+	name: "football"
+})
+Item.create({
+	name: "hockey puck"
+})
+Item.create({
+	name: "ice skates"
+})
+Item.create({
+	name: "large rubber ball"
+})
+Item.create({
+	name: "monopoly game set"
+})
+Item.create({
+	name: "dice"
+})
+Item.create({
+	name: "pool cue"
+	})
+Item.create({
+	name: "pool balls"
+	})
+Item.create({
+	name: "pool table"
+	})
 
 
 User.create({
 	name: "Keyan",
 	email: "keyanbagheri@gmail.com",
-	password: "password123"
+	password: "password"
 	})
 User.create({
 	name: "Omar",
-	email: "theedelarosa@gmail.com",
-	password: "password123"
+	email: "omar@gmail.com",
+	password: "password"
 	})
 User.create({
 	name: "Cyrous",
 	email: "cyimbigtyme34@aol.com",
-	password: "password123"
+	password: "password34"
 	})
 User.create({
 	name: "Tina",
 	email: "tina@gmail.com",
-	password: "password123"
+	password: "password"
 	})
 User.create({
 	name: "Neel",
-	email: "darthneel@gmail.com",
-	password: "password123"
+	email: "neel@gmail.com",
+	password: "password"
 	})
 User.create({
 	name: "Keri",
-	email: "ktoksu@gmail.com",
-	password: "password123"
+	email: "keri@gmail.com",
+	password: "password"
 	})
 User.create({
 	name: "Declan V",
 	email: "declanv@gmail.com",
-	password: "password123"
+	password: "password"
 	})
 User.create({
 	name: "Milty",
 	email: "milty@gmail.com",
-	password: "password123"
+	password: "password"
 	})
 User.create({
 	name: "PJ",
 	email: "pj@gmail.com",
-	password: "password123"
+	password: "password"
 	})
 
 
@@ -109,7 +279,7 @@ Game.create({
 Game.create({
 	name: "Calvinball",
 	ig_hash_tag: "calvinball",
-	user_id: User.find_by_name("OMAR").id,
+	user_id: User.find_by_name("PJ").id,
 	photo: "http://flavorwire.files.wordpress.com/2011/11/calvinball.jpg?w=600&h=400",
 	blurb: "No sport is less organized than Calvinball! - Hobbes",
 	min_players: 2,
@@ -123,7 +293,7 @@ Game.create({
 Game.create({
 	name: "Flonkerton",
 	ig_hash_tag: "flonkerton",
-	user_id: User.find_by_name("TINA").id,
+	user_id: User.find_by_name("KERI").id,
 	photo: "http://flavorwire.files.wordpress.com/2011/11/flonkerton.jpg?w=600&h=400",
 	blurb: "Got a few extra boxes of paper lying around? How about a rousing game of Flonkerton?",
 	min_players: 2,
@@ -163,7 +333,7 @@ Game.create({
 Game.create({
 	name: "Scrabbleship",
 	ig_hash_tag: "scrabbleship",
-	user_id: User.find_by_name("KEYAN").id,
+	user_id: User.find_by_name("NEEL").id,
 	photo: "http://flavorwire.files.wordpress.com/2011/11/scrabbleship11.jpg?w=600&h=400",
 	blurb: "This game makes no sense. -Lisa Simpson",
 	min_players: 2,

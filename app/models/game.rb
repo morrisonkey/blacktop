@@ -5,6 +5,9 @@ class Game < ActiveRecord::Base
 	has_many :game_items
 	has_many :tags, through: :game_tags
 	has_many :tags
+  has_many :game_tags
+  has_many :comments
+  
 
 	# def add_game_tag(tag_name)
 	# 	tag = Tag.find_by_name(tag_name)

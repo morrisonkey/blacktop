@@ -1,4 +1,3 @@
-
   <h2>Add a tag!</h2>
   <p>Choose from existing tags: <%= select_tag(:tag, options_from_collection_for_select(Tag.all, :id, :name)) %></p>
   <p>Create a new tag: <%= text_field_tag :new_tag, "" %></p>

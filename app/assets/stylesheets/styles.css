@@ -181,6 +181,11 @@ p {
   line-height: 0;
 }
 
+#maincontent {
+  margin: 2em;
+  float: center;
+}
+
 #content{
   height: 70em;
   overflow: auto;
@@ -230,6 +235,7 @@ article{
 	border-width: .15em;
 	border-color: RGBA(19, 28, 83, 1);
 	line-height: 2.5em;
+  text-align: left;
 }
 
 
@@ -245,4 +251,105 @@ article{
 footer img {
 	display: inline;	
 }
+
+@media (min-width: 1200px) {
+  body {
+  font-size: 16px;
+}
+}
+@media (max-width: 1200px) {
+  body {
+  font-size: 16px;
+}
+}
+
+@media (max-width: 1150px) {
+  body {
+  font-size: 15.5px;
+}
+}
+@media (max-width: 1100px) {
+  body {
+  font-size: 15px;
+
+@media (max-width: 1050px) {
+  body {
+  font-size: 14.5px;
+}
+}
+}
+}
+
+@media (max-width: 1000px) {
+  body {
+  font-size: 14px;
+}
+}
+
+
+@media (max-width: 950px) {
+  body {
+  font-size: 13.5px;
+}
+}
+@media (max-width: 900px) {
+  body {
+  font-size: 13px;
+}
+}
+@media (max-width: 850px) {
+  body {
+  font-size: 12.5px;
+}
+}
+@media (max-width: 800px) {
+  body {
+  font-size: 12px;
+}
+}
+
+@media (max-width: 750px) {
+  body {
+  font-size: 11.5px;
+}
+}
+@media (max-width: 700px) {
+  body {
+  font-size: 11px;
+}
+}
+
+@media (max-width: 650px) {
+  body {
+  font-size: 10.5px;
+}
+}
+@media (max-width: 600px) {
+  body {
+  font-size: 10px;
+}
+}
+@media (max-width: 550px) {
+  body {
+  font-size: 9px;
+}
+}
+@media (max-width: 500px) {
+  body {
+  font-size: 8.5px;
+}
+}
+
+@media (max-width: 450px) {
+  body {
+  font-size: 8px;
+}
+}
+@media (max-width: 400px) {
+  body {
+  font-size: 7px;
+}
+}
+
+
 

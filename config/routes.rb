@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
   get 'users/unlike/:id' => 'users#unlike'
 
+  get 'comments/:id/delete' => 'comments#delete'
+
   # post '/login/user' => "users#process_login"
 
   # get '/user/logout' => "users#end_session"
@@ -52,6 +54,9 @@ Rails.application.routes.draw do
   # root :to => "users#new"
   resources :users
   resources :sessions
+  resources :games, only: [] do
+    resources :comments, only: [:create]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
