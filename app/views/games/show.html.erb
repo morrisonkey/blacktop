@@ -15,13 +15,14 @@
 	<h3><%= @game.blurb %></h3>
 	<div class="poloroid">
 		<div class="leftup"><%= image_tag @game.photo %></div></div>
+		<p>&nbsp;</p>
 	<p><%=@game.objective%></p>
 	<p>Minimum Players:<%=@game.min_players%></p>
 	<p>For ages <%=@game.min_player_age%> and up</p>
 	<p><%=@game.additional_information%></p>
 	<p>Gameplay: <%=@game.gameplay%></p>
 	<p>Rules: <%=@game.rules%></p>
-	<p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<%=likes.count%>)</a>)</p>
+	<p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<%=likes.count%>)</p>
 </article>
 <% end %>
 <% if current_user %>

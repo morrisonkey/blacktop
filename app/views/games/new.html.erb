@@ -8,7 +8,7 @@
 }
 %>
 
-<%= form_tag @game do %>
+<%= form_tag do %>
   <%= render page_to_render[@page] %>
   <%= hidden_field_tag :page, @page %>
   <%= render "footer", :page => @page %>

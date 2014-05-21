@@ -1,4 +1,16 @@
 
+  <h2>Add a tag!</h2>
+  <p>Choose from existing tags: <%= select_tag(:tag, options_from_collection_for_select(Tag.all, :id, :name)) %></p>
+  <p>Create a new tag: <%= text_field_tag :new_tag, "" %></p>
+  <p><%= submit_tag "add tag" %></p>
+
+  <p>[current tags]</p>
+  <%= tag_array = @tag_list.split(",") %>
+  <% tag_array.each do |tag| %>
+  <p><%= tag %></p>
+  <% end %>
+
+  <%= hidden_field_tag :tag_list, @tag_list %>
   <%= hidden_field_tag :name, params[:name] %>
   <%= hidden_field_tag :ig_hash_tag, params[:ig_hash_tag] %>
   <%= hidden_field_tag :photo, params[:photo] %>

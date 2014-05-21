@@ -5,24 +5,78 @@ class GamesController < ApplicationController
 	# before_action :require_login, only: [:create, :new, :edit, :update, :delete]
 
 	def new
-		if params[:page]
+		if params[:commit] == "add tag"
+
+			# taggable section of game creation
+
+			# parse tag list
+			@page = 3
+			if params[:new_tag].chomp != ""
+				tag_name = params[:new_tag].chomp
+				if Tag.find_by_name(tag_name)
+					new_tag = Tag.find_by_name(tag_name)
+				else
+					new_tag = Tag.create(:name => tag_name)
+				end
+				@tags = TagHelper.process_tags(params[:tag_list] || "")
+				@tags << new_tag.name
+			else
+				@tags = TagHelper.process_tags(params[:tag_list] || "")
+				newtag = Tag.find_by_id(params[:tag])
+				@tags << newtag.name
+			end
+			@tag_list = @tags.uniq.sort.join(",")
+
+			# update the game
+		elsif params[:name]
 			@page = params[:page].to_i + 1
 		else
 			@page = 1
 		end
-		if @page == 2
-			add_photo(params[:ig_hash_tag])
-		end
-		if @page >= 5
-			create
-		end
+			if @page == 2
+				add_photo(params[:ig_hash_tag])
+			elsif @page == 3 && params[:commit] != "add tag"
+				@tag_list = "#{params[:ig_hash_tag]}"
+			elsif @page >= 5
+				game = create
+				@tags = TagHelper.process_tags(params[:tag_list] || "")
+				@tags.each do |tag_name|
+					tag = Tag.find_by_name(tag_name)
+					if tag != nil
+					GameTag.create(
+      		:game_id => game.id,
+      		:tag_id => tag.id
+      		)
+					end
+				end
+				redirect_to game_path(game)
+			end
 	end
 
+	def tag_it(game, tag)
+	end
+
+	def untag_it
+		game = Game.find_by_id(params[:id])
+		current_user.remove_favorite(@game)
+	end
+
+
 	def create
-		# binding.pry
-		game = Game.create(game_attributes)
-		# binding.pry
-		redirect_to "/add_photo/games/#{game.id}"
+		game = Game.create(
+			:name        => params[:name],
+			:ig_hash_tag => params[:ig_hash_tag],
+			:photo       => params[:photo],
+			:user_id     => params[:user_id],
+			:min_players => params[:min_players],
+			:max_players => params[:max_players],
+			:blurb       => params[:blurb],
+			:objective   => params[:objective],
+			:gameplay    => params[:gameplay],
+			:rules       => params[:rules],
+			:additional_information => params[:additional_information],
+			:min_player_age         => params[:min_player_age]
+			)
 	end
 
 	def index
