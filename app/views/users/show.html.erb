@@ -3,7 +3,7 @@
   <% @games.each do |game| %>
   <% user = User.find_by_id(game.user_id) %>
   <% date = game.created_at.to_s.split('')[0..9].join %>
-  <% if user.id == current_user.id %>
+  <% if user == @user %>
 <article>
   <% if game.objective %>
   <h4 class="leftup"><%=game.objective%></h4>
