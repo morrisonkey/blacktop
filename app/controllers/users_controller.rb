@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def home
     @user = User.find_by_id(params[:id])
-    @game = Game.all
+    @games = Game.all
   end
 
   def new
