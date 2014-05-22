@@ -51,6 +51,8 @@
 <h4>[ games you like ]</h4>
 <% @user.favorites.all.each do |favorite| %>
 <% game = Game.find_by_id(favorite.game_id) %>
+<% unless game.blank? %>
+<% date = game.created_at.to_s.split('')[0..9].join %>
   <% user = User.find_by_id(game.user_id) %>
 <article>
   <% if game.objective %>
@@ -86,7 +88,8 @@
   <h4 class="leftup">"<%= game.blurb %>"</h4>
       <br></br>
       <br></br>
-  <p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> / Likes(<%=game.favorites.count%>)</p>
+  <p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<%=game.favorites.count%>)</p>
 </article>
+    <% end %>
     <% end %>
     <% end %>
