@@ -47,7 +47,7 @@
     <% end %>
     <% end %>
 <p>&nbsp;</p>
-<% if @user.favorites %>
+<% unless @user.favorites.blank? %>
 <h4>[ games you like ]</h4>
 <% @user.favorites.all.each do |favorite| %>
 <% game = Game.find_by_id(favorite.game_id) %>
