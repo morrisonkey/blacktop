@@ -90,7 +90,7 @@
 		<% end %>
 		<% end %>
 		<%end%>
-	  <% if current_user == true %>
+	  <% unless current_user.blank? %>
 		<p>&nbsp;</p>
 		<h4>[ add a comment ]</h4>
 		<%= form_for [@game, @comment] do |f| %>
