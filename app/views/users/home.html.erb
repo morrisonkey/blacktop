@@ -2,36 +2,92 @@
 <h1><%= greeting.sample %> <%= current_user.name %></h1>
 <p>&nbsp;</p>
 <h4>[ your games ]</h4>
-<% Game.all.each do |game| %>
-<% date = game.created_at.to_s.split('')[0..9].join %>
-<% user = User.find_by_id(game.user_id) %>
-<% if @user.games %>
-<% if user == @user %>
-<article>
-  <h1><a href="/games/<%=game.id%>"><%= game.name %></h1></a>
-  <h3><%=game.blurb%></h3>
-    <a href="/games/<%=game.id%>">
-  <div class="poloroid">
-    <div class="leftup"><%= image_tag game.photo %></div></div></a>
-  <p class="metadata">Posted on <%= date %> / Likes(<%=game.favorites.count%>)</p>
-  <h3><a href="/games/<%=game.id%>/edit" %>Edit Game</a> | <a href="/games/<%=game.id%>/delete" %>Delete Game</a></h3>
-</article>
-<% end %>
-<%end%>
-<%end%>
 <p>&nbsp;</p>
-<% if current_user.favorites %>
+  <% @games.each do |game| %>
+  <% user = User.find_by_id(game.user_id) %>
+  <% date = game.created_at.to_s.split('')[0..9].join %>
+  <% if user == @user %>
+<article>
+  <% if game.objective %>
+  <h4 class="leftup"><%=game.objective%></h4>
+  <h3 class="leftup">in<h3>
+    <% end %>
+  <h1><a href="/games/<%=game.id%>"><%= game.name %></h1></a>
+        <br></br>
+  <a href="/games/<%=game.id%>" class="leftup">
+  <div class="poloroid"><%= image_tag game.photo %></div></a>
+  <br></br>
+      <br></br>
+      <br></br>
+        <% if game.min_player_age %>
+      <h4>Ages <%=game.min_player_age%> and up</h4>
+      <% else %>
+      <br></br>
+      <% end %>
+      <% if game.min_players %>
+      <h4>Minimum Players: <%=game.min_players%></h4>
+      <% else %>
+      <br></br>
+      <% end %>
+      <% if game.max_players %>
+      <h4>Maximum Players: <%=game.max_players%></h4>
+      <% else %>
+      <br></br>
+      <% end %>
+          <br></br>
+      <br></br>
+          <br></br>
+      <br></br>
+  <h4 class="leftup">"<%= game.blurb %>"</h4>
+      <br></br>
+      <br></br>
+  <h3><a href="/games/<%=game.id%>/edit" %>Edit Game</a> | <a href="/games/<%=game.id%>/delete" %>Delete Game</a></h3>
+  <p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<%=game.favorites.count%>)</p>
+</article>
+    <% end %>
+    <% end %>
+<p>&nbsp;</p>
+<% if @user.favorites %>
 <h4>[ games you like ]</h4>
 <% @user.favorites.all.each do |favorite| %>
 <% game = Game.find_by_id(favorite.game_id) %>
 <% date = game.created_at.to_s.split('')[0..9].join %>
+  <% user = User.find_by_id(game.user_id) %>
 <article>
+  <% if game.objective %>
+  <h4 class="leftup"><%=game.objective%></h4>
+  <h3 class="leftup">in<h3>
+    <% end %>
   <h1><a href="/games/<%=game.id%>"><%= game.name %></h1></a>
-  <h3><%=game.blurb%></h3>
-    <a href="/games/<%=game.id%>">
-    <div class="poloroid">
-    <div class="leftup"><%= image_tag game.photo %></div></div></a>
-  <p class="metadata">Posted on <%= date %> / Likes(<%=game.favorites.count%>)</p>
+        <br></br>
+  <a href="/games/<%=game.id%>" class="leftup">
+  <div class="poloroid"><%= image_tag game.photo %></div></a>
+  <br></br>
+      <br></br>
+      <br></br>
+        <% if game.min_player_age %>
+      <h4>Ages <%=game.min_player_age%> and up</h4>
+      <% else %>
+      <br></br>
+      <% end %>
+      <% if game.min_players %>
+      <h4>Minimum Players: <%=game.min_players%></h4>
+      <% else %>
+      <br></br>
+      <% end %>
+      <% if game.max_players %>
+      <h4>Maximum Players: <%=game.max_players%></h4>
+      <% else %>
+      <br></br>
+      <% end %>
+          <br></br>
+      <br></br>
+          <br></br>
+      <br></br>
+  <h4 class="leftup">"<%= game.blurb %>"</h4>
+      <br></br>
+      <br></br>
+  <p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<%=game.favorites.count%>)</p>
 </article>
     <% end %>
     <% end %>
