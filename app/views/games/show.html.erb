@@ -87,7 +87,7 @@
 		<a href="/comments/<%=comment.id%>/delete" %>Delete Comment</a>
 		<% end %>
 		<%end%>
-	  <% if current_user %>
+	  <% if current_user == true %>
 		<p>&nbsp;</p>
 		<h4>[ add a comment ]</h4>
 		<%= form_for [@game, @comment] do |f| %>
