@@ -87,10 +87,14 @@
 		<a href="/comments/<%=comment.id%>/delete" %>Delete Comment</a>
 		<% end %>
 		<%end%>
+	  <% if current_user %>
 		<p>&nbsp;</p>
 		<h4>[ add a comment ]</h4>
 		<%= form_for [@game, @comment] do |f| %>
 		<%= f.text_area :body, placeholder: "write your comment here", size: "70x5" %>
 		<%= f.submit %>
 		<% end %>
+		<% else %>
+		<h4>[ log in to add comments ]</h4>
+		<%end%>
 
