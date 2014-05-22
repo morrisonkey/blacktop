@@ -7,10 +7,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     @game = Game.new
+    @games = Game.all
   end
 
   def home
     @user = User.find_by_id(params[:id])
+    @game = Game.all
   end
 
   def new

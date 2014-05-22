@@ -1,24 +1,9 @@
 <h1>Games by <%= @user.name %></h1>
 <p>&nbsp;</p>
-<% Game.all.each do |game| %>
-<% date = game.created_at.to_s.split('')[0..9].join %>
-<% if game.user_id == @user.id %>
-<article>
-  <h1><a href="/games/<%=game.id%>"><%= game.name %></h1></a>
-	<h4><%=game.blurb%></h4>
-  <a href="/games/<%=game.id%>">
-  <div class="poloroid">
-    <div class="leftup"><%= image_tag game.photo %></div></div></a>
-	
-	<p class="metadata">Posted on <%= date %> / Likes(<%=game.favorites.count%>)</p>
-</article>
-		<% end %>
-		<% end %>
-
-
   <% @games.each do |game| %>
   <% user = User.find_by_id(game.user_id) %>
   <% date = game.created_at.to_s.split('')[0..9].join %>
+  <% if user.id == current_user.id %>
 <article>
   <% if game.objective %>
   <h4 class="leftup"><%=game.objective%></h4>
@@ -55,4 +40,5 @@
       <br></br>
   <p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<%=game.favorites.count%>)</p>
 </article>
+    <% end %>
     <% end %>
