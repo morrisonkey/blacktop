@@ -4,8 +4,8 @@ Game.delete_all
 User.delete_all
 Favorite.delete_all
 Comment.delete_all
-# Tag.delete_all
-# Item.delete_all
+Tag.delete_all
+Item.delete_all
 
 Tag.create({
 	name: "outdoor"
