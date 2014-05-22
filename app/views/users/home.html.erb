@@ -18,6 +18,7 @@
 <%end%>
 <p>&nbsp;</p>
 <h4>[ games you like ]</h4>
+<% if current_user.favorites %>
 <% current_user.favorites.all.each do |favorite| %>
 <% game = Game.find_by_id(favorite.game_id) %>
 <% date = game.created_at.to_s.split('')[0..9].join %>
@@ -29,4 +30,5 @@
     <div class="leftup"><%= image_tag game.photo %></div></div></a>
   <p class="metadata">Posted on <%= date %> / Likes(<%=game.favorites.count%>)</p>
 </article>
+    <% end %>
     <% end %>

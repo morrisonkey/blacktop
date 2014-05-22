@@ -6,12 +6,12 @@
 <% end %>
 <article>
 	<% if @game.objective %>
-	<h4><%=@game.objective%></h4>
-	<h3>in<h3>
+	<h4 class="leftup"><%=@game.objective%></h4>
+	<h3 class="leftup">in<h3>
 		<% end %>
-		<h1><%= @game.name %></h1>
-		<div class="poloroid">
-			<div class="leftup"><%= image_tag @game.photo %></div></div>
+		<h1 class="leftup"><%= @game.name %></h1>
+			<div class="leftup">
+		<div class="poloroid"><%= image_tag @game.photo %></div></div>
 			<br></br>
 			<% if @game.min_player_age %>
 			<h4>Ages <%=@game.min_player_age%> and up</h4>
@@ -34,14 +34,16 @@
 			<br></br>
 			<br></br>
 			<br></br>
-			<h4>"<%= @game.blurb %>"</h4>
+			<h4 class="leftup">"<%= @game.blurb %>"</h4>
 			<br></br>
 			<h4>Gameplay:</h4>
 			<p><%=@game.gameplay%></p>
 			<br></br>
+			<% if @game.rules %>
 			<h4>Rules:</h4>
 			<p><%=@game.rules%></p>
 			<br></br>
+			<% end %>
 			<% if @game.game_items %>
 			<h4>What You Will Need:</h4>
 			<% item_list = [] %>

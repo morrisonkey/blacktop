@@ -12,7 +12,7 @@ class GamesController < ApplicationController
 			# parse tag list
 			@page = 3
 			if params[:new_tag].chomp != ""
-				tag_name = params[:new_tag].chomp
+				tag_name = params[:new_tag].chomp.downcase
 				if Tag.find_by_name(tag_name)
 					new_tag = Tag.find_by_name(tag_name)
 				else
@@ -35,7 +35,7 @@ class GamesController < ApplicationController
 			# parse tag list
 			@page = 4
 			if params[:new_item].chomp != ""
-				item_name = params[:new_item].chomp
+				item_name = params[:new_item].chomp.downcase
 				if Item.find_by_name(item_name)
 					new_item = Item.find_by_name(item_name)
 				else

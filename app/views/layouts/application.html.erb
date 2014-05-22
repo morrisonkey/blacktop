@@ -27,7 +27,6 @@
 </div class="span_2_of_2">
 
 <div class="backing" id="sidebar">
-	<%highlights = Game.all.sort%>
 <div id="user_nav">
   <% if current_user %>
     <a href="/users/<%=current_user.id%>" %>Logged in as <%= current_user.name %>.</a>
@@ -55,6 +54,8 @@
 <br></br>
 <%= submit_tag "Search" %>
 <% end %>
+<% if Game.all.count >= 4 %>
+	<%highlights = Game.all.sort%>
 <p>&nbsp;</p>
 <h3>NEWEST</h3>
 <p><a href="/games/<%=highlights[-1].id%>"><%=highlights[-1].name%></p></a>
@@ -70,7 +71,7 @@
 <p><a href="/games/<%=likeabity[1].id%>"><%=likeabity[1].name%></p></a>
 <p><a href="/games/<%=likeabity[2].id%>"><%=likeabity[2].name%></p></a>
 <p><a href="/games/<%=likeabity[3].id%>"><%=likeabity[3].name%></p></a>
-
+<% end %>
 
 </div><!-- sidebar -->
 
