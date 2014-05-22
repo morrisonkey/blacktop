@@ -1,57 +1,94 @@
 <% if @game %>
 <% user = User.find_by_id(@game.user_id) %>
 <% date = @game.created_at.to_s.split('')[0..9].join %>
-<% all_users = User.all %>
-<% likes = [] %>
-<% all_users.each do |player| %>
-<% player.favorites.all.each do |favorite| %>
-<% if @game.id == favorite.game_id %>
-<% likes << player %>
-<% end %>
-<% end %>
-<% end %>
 <% if current_user && current_user.id == user.id %>
 <h4><a href="/games/<%=@game.id%>/edit" %>Edit Game</a> | <a href="/games/<%=@game.id%>/delete" %>Delete Game</a></h4>
 <% end %>
 <article>
-	<h1><%= @game.name %></h1>
-	<h3>[ <%= @game.blurb.downcase %> ]</h3>
-	<div class="poloroid">
-		<div class="leftup"><%= image_tag @game.photo %></div></div>
+	<% if @game.objective %>
+	<h4><%=@game.objective%></h4>
+	<h3>in<h3>
+		<% end %>
+		<h1><%= @game.name %></h1>
+		<div class="poloroid">
+			<div class="leftup"><%= image_tag @game.photo %></div></div>
+			<br></br>
+			<% if @game.min_player_age %>
+			<h4>Ages <%=@game.min_player_age%> and up</h4>
+			<% else %>
+			<br></br>
+			<% end %>
+			<br></br>
+			<% if @game.min_players %>
+			<h4>Minimum Players: <%=@game.min_players%></h4>
+			<% else %>
+			<br></br>
+			<% end %>
+			<br></br>
+			<% if @game.max_players %>
+			<h4>Maximum Players: <%=@game.max_players%></h4>
+			<% else %>
+			<br></br>
+			<% end %>
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+			<h4>"<%= @game.blurb %>"</h4>
+			<br></br>
+			<h4>Gameplay:</h4>
+			<p><%=@game.gameplay%></p>
+			<br></br>
+			<h4>Rules:</h4>
+			<p><%=@game.rules%></p>
+			<br></br>
+			<% if @game.game_items %>
+			<h4>What You Will Need:</h4>
+			<% item_list = [] %>
+			<% @game.game_items.each do |item| %>
+			<% item_name = Item.find_by_id(item.item_id).name %>
+			<% item_list << item_name %>
+			<% end %>
+			<% item_string = item_list.uniq.sort.join(", ")%>
+			<h3><%= item_string %></h3>
+			<% end %>
+			<% if @game.game_tags %>
+			<h4>Game Tags:</h4>
+			<% tag_list = [] %>
+			<% @game.game_tags.each do |tag| %>
+			<% tag_name = Tag.find_by_id(tag.tag_id).name %>
+			<% tag_list << tag_name %>
+			<% end %>
+			<% tag_string = tag_list.uniq.sort.join(", ")%>
+			<h3><%= tag_string %></h3>
+			<% end %>
+			<p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<%=@game.favorites.count%>)</p>
+		</article>
+		<% end %>
+		<% if current_user %>
+		<% favorite_games = [] %>
+		<% current_user.favorites.all.each do |favorite| %>
+		<% favorite_games << favorite.game_id %>
+		<% end %> 
 		<p>&nbsp;</p>
-	<p><%=@game.objective%></p>
-	<p>Minimum Players:<%=@game.min_players%></p>
-	<p>For ages <%=@game.min_player_age%> and up</p>
-	<p><%=@game.additional_information%></p>
-	<p>Gameplay: <%=@game.gameplay%></p>
-	<p>Rules: <%=@game.rules%></p>
-	<p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<%=likes.count%>)</p>
-</article>
-<% end %>
-<% if current_user %>
-<% favorite_games = [] %>
-<% current_user.favorites.all.each do |favorite| %>
-<% favorite_games << favorite.game_id %>
-<% end %> 
-<p>&nbsp;</p>
-<% if favorite_games.include? @game.id %>
-<a href="/users/unlike/<%=@game.id%>" %><%= image_tag("unlike.png", :size => "100x100")%></a>
-<% else %>
-<a href="/users/favorites/<%=@game.id%>" %><%= image_tag("like2.jpg", :size => "84x84")%></a>
-<% end %>
-<% end %>
+		<% if favorite_games.include? @game.id %>
+		<a href="/users/unlike/<%=@game.id%>" %><%= image_tag("unlike.png", :size => "100x100")%></a>
+		<% else %>
+		<a href="/users/favorites/<%=@game.id%>" %><%= image_tag("like2.jpg", :size => "84x84")%></a>
+		<% end %>
+		<% end %>
 
-<h4>[ comments ]</h4>
-<% @comments.each do |comment| %>
-<div class="metadata"><a href="/users/<%=comment.user.id%>" %><%= comment.user.name %>:</a><p>&emsp;&emsp;&emsp;<%=comment.body%></p></div>
-<% if current_user && current_user.id == comment.user.id %>
-<a href="/comments/<%=comment.id%>/delete" %>Delete Comment</a>
-<% end %>
-	<%end%>
-	<p>&nbsp;</p>
-	<h4>[ add a comment ]</h4>
-<%= form_for [@game, @comment] do |f| %>
-<%= f.text_area :body, placeholder: "write your comment here", size: "70x5" %>
-<%= f.submit %>
-<% end %>
+		<h4>[ comments ]</h4>
+		<% @comments.each do |comment| %>
+		<div class="metadata"><a href="/users/<%=comment.user.id%>" %><%= comment.user.name %>:</a><p>&emsp;&emsp;&emsp;<%=comment.body%></p></div>
+		<% if current_user && current_user.id == comment.user.id %>
+		<a href="/comments/<%=comment.id%>/delete" %>Delete Comment</a>
+		<% end %>
+		<%end%>
+		<p>&nbsp;</p>
+		<h4>[ add a comment ]</h4>
+		<%= form_for [@game, @comment] do |f| %>
+		<%= f.text_area :body, placeholder: "write your comment here", size: "70x5" %>
+		<%= f.submit %>
+		<% end %>
 

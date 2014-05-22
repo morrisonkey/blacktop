@@ -1,29 +1,25 @@
 
 <%= form_for @game do |f| %>
-    <h4><%=@game.name%></h4>
-  <h4> What is the Name of Your Game? </h4>
-  <%= f.text_field :name, :size => 50%>
-  <h4> Add One Keyword to Describe What Your Game is Most Like (No Spaces!)</h4>
-  <%= f.text_field :ig_hash_tag, :size => 50%>
-  <h4> Write a Quick and Fun Tagline For Your Game  </h4>
-  <%= f.text_field :blurb, :size => 50%>
-  <h4>How Many Players Are Required to Play Your Game?</h4>
-  <%= f.text_field :min_players, { placeholder: "min number of players" } %>
-  <h4>(Leave Blank if Everyone Can Play Your Game At Once!)</h4>
-  <%= f.text_field :max_players, { placeholder: "max number of players" } %>
-  <h4>How Old Must Players Be to Play Your Game?</h4>
-  <%= f.text_field :min_player_age, { placeholder: "min age of players" } %>
-  <h4> What is the Objective of Your Game? </h4>
-  <%= f.text_area(:objective, :size => "50x10") %>
-  <h4> Describe the Gameplay of Your Game (Don't Miss Any Details!) </h4>
-  <%= f.text_area(:gameplay, :size => "50x10") %>
-  <h4> List All the Rules of Your Game </h4>
-  <%= f.text_area(:rules, :size => "50x10") %>
-  <h4> What Materials do you Need to Play Your Game? </h4>
-  <%= f.text_area(:additional_information, :size => "50x10") %>
-  <h4>Add An Image Url for Your Game</h4>
-  <%= f.text_field :photo, :size => 50%>
-  <h4></h4>
+    <h1><%=@game.name%></h1>
+  <h3> Changes Name of Your Game? </h3>
+  <%= f.text_field :name, :size => 25%>
+  <h3>How Many Players Are Required to Play Your Game?</h3>
+  <%= f.text_field :min_players, placeholder: "min", :size => 2%>
+  <h3>What is the maximum number of players? (optional)</h3>
+  <%= f.text_field :max_players, placeholder: "max", :size => 2%>
+  <h3>How Old Must Players Be to Play Your Game?</h3>
+  <%= f.text_field :min_player_age, placeholder: "min age", :size => 2%>
+  <h3> Write a Quick and Fun Tagline For Your Game  </h3>
+  <%= f.text_area :blurb, :size => "70x2"%>
+  <h3> What is the Objective of Your Game? </h3>
+  <%= f.text_area(:objective, :size => "70x5") %>
+  <h3> Describe the Gameplay of Your Game (Don't Miss Any Details!) </h3>
+  <%= f.text_area(:gameplay, :size => "70x10") %>
+  <h3> List All the Rules of Your Game </h3>
+  <%= f.text_area(:rules, :size => "70x10") %>
+  <h3>Add An Image Url for Your Game (square-format)</h3>
+  <%= f.text_field :photo, :size => 60%>
+  <h3></h3>
 
   <%= f.hidden_field :user_id, {value: current_user.id} %>
 

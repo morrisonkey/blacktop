@@ -50,6 +50,12 @@
 <% end %>
 <h3><%= link_to "[ view all games ]", games_path%></h3>
 <p>&nbsp;</p>
+<%= form_tag do %>
+<%= text_field_tag :search_parameter, "", placeholder: "search by keyword", size: 15 %>
+<br></br>
+<%= submit_tag "Search" %>
+<% end %>
+<p>&nbsp;</p>
 <h3>NEWEST</h3>
 <p><a href="/games/<%=highlights[-1].id%>"><%=highlights[-1].name%></p></a>
 <p><a href="/games/<%=highlights[-2].id%>"><%=highlights[-2].name%></p></a>
@@ -57,15 +63,13 @@
 <p><a href="/games/<%=highlights[-4].id%>"><%=highlights[-4].name%></p></a>
 <p>&nbsp;</p>
 
-
-
+<% likeabity = Game.all.sort{|x,y| y.favorites.count<=>x.favorites.count}%>
 
 <h3>MOST LIKED</h3>
-<p><a href="/games/<%=highlights[0].id%>"><%=highlights[0].name%></p></a>
-<p><a href="/games/<%=highlights[1].id%>"><%=highlights[1].name%></p></a>
-<p><a href="/games/<%=highlights[2].id%>"><%=highlights[2].name%></p></a>
-<p><a href="/games/<%=highlights[3].id%>"><%=highlights[3].name%></p></a>
-<p><a href="/games/<%=highlights[4].id%>"><%=highlights[4].name%></p></a>
+<p><a href="/games/<%=likeabity[0].id%>"><%=likeabity[0].name%></p></a>
+<p><a href="/games/<%=likeabity[1].id%>"><%=likeabity[1].name%></p></a>
+<p><a href="/games/<%=likeabity[2].id%>"><%=likeabity[2].name%></p></a>
+<p><a href="/games/<%=likeabity[3].id%>"><%=likeabity[3].name%></p></a>
 
 
 </div><!-- sidebar -->

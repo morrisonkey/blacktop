@@ -1,20 +1,22 @@
-  <h4>How Many Players Are Required to Play Your Game?</h4>
-  <%= text_field_tag :min_players, "", placeholder: "min number of players" %>
-  <h4>(Leave Blank if Everyone Can Play Your Game At Once!)</h4>
-  <%= text_field_tag :max_players, "", placeholder: "max number of players" %>
-  <h4>How Old Must Players Be to Play Your Game?</h4>
-  <%= text_field_tag :min_player_age, "", placeholder: "min player age" %>
-  <h4> Write a Quick and Fun Tagline For Your Game  </h4>
-  <%= text_field_tag :blurb, "", placeholder: "it's like shuffleboard on caffeine!", size: "60" %>
-  <h4> What is the Objective of Your Game? </h4>
+  <br></br>
+  <h3>How Many Players Are Required to Play Your Game?</h3>
+  <%= text_field_tag :min_players, "", placeholder: "min players", :size => 6 %>
+  <h3>What is the maximum number of players? (optional)</h3>
+  <%= text_field_tag :max_players, "", placeholder: "max players", :size => 6 %>
+  <h3>How Old Must a Player Be in Order to Play Your Game?</h3>
+  <%= text_field_tag :min_player_age, "", placeholder: "min age", :size => 6 %>
+  <br></br>
+  <br></br>
+  <br></br>
+  <h3> Write a Quick and Fun Tagline For Your Game  </h3>
+  <%= text_area_tag :blurb, "", placeholder: "it's like shuffleboard on caffeine!", size: "70x2" %>
+  <h3> What is the Objective of Your Game? </h3>
   <%= text_area_tag :objective, "", placeholder: "the objective is to win!", size: "70x3" %>
-  <h4> Describe the Gameplay of Your Game (Don't Miss Any Details!) </h4>
+  <h3> Describe the Gameplay of Your Game (Don't Miss Any Details!) </h3>
   <%= text_area_tag :gameplay, "", placeholder: "how do we play your game?", size: "70x10" %>
-  <h4> List All the Rules of Your Game </h4>
+  <h3> List All the Rules of Your Game </h3>
   <%= text_area_tag :rules, "", placeholder: "Rule 1: Don't cheat!", size: "70x10" %>
-  <h4> What Materials do you Need to Play Your Game? </h4>
-  <%= text_area_tag :additional_information, "", size: "70x10" %>
-  <h4></h4>
+  <h4>[ click next to see your game ]</h4>
   <%= hidden_field_tag :name, params[:name] %>
   <%= hidden_field_tag :ig_hash_tag, params[:ig_hash_tag] %>
   <%= hidden_field_tag :photo, params[:photo] %>

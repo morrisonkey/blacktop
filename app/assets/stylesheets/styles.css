@@ -129,7 +129,7 @@ body {
 h2 {
 	color: RGBA(191, 220, 223, 1);
 	font-size: 4em;
-	text-shadow: .1em .1em RGBA(0, 0, 0, 1);
+	text-shadow: .1em .1em RGBA(0, 0, 0, .2);
 }
 
 h3 {
@@ -187,7 +187,7 @@ p {
 }
 
 #content{
-  height: 70em;
+  height: 75em;
   overflow: auto;
 	background: RGBA(70, 145, 150, .9);
 	padding: 1.5em;
@@ -197,7 +197,7 @@ p {
 }
 
 #content:hover{
-  height: 70em;
+  height: 75em;
   overflow: auto;
 	background: RGBA(70, 145, 150, .95);
 	padding: 1.5em;
@@ -207,7 +207,7 @@ p {
 }
 
 #sidebar{
-  height: 70em;
+  height: 75em;
   overflow: auto;
 	background: RGBA(19, 28, 83, .9);
 	line-height: 1.5em;
@@ -225,7 +225,7 @@ article{
 	/*border-color: black;*/
 	width: 48em;
 	text-align: left ;
-	min-height: 30em;
+	min-height: 40em;
 	color:  RGBA(70, 145, 150, .85);
 }
 

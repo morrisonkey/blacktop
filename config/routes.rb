@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'games#index'
 
   get '/games' => 'games#index'
-
+  post '/' => 'games#index'
  
   # get '/games/:user_id/new' => 'games#new', as: :game
   get '/games/new' => 'games#new'

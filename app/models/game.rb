@@ -1,6 +1,7 @@
 class Game < ActiveRecord::Base
 	belongs_to :user
 	has_many :users, through: :favorites
+  has_many :favorites
 	has_many :items, through: :game_items
 	has_many :game_items
 	has_many :tags, through: :game_tags

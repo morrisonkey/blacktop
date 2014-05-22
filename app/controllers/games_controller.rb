@@ -113,7 +113,24 @@ class GamesController < ApplicationController
 	end
 
 	def index
-		@games = Game.all
+		if params[:commit] == "Search"
+			@games = []
+			Game.all.each do |game|
+				game.game_tags.each do |tag|
+					taggie = Tag.find_by_id(tag.tag_id)
+				if taggie.name == params[:search_parameter]
+					@games << game
+				end
+					@title = "[ #{params[:search_parameter]} games ]"
+				end
+			end
+			if @games.length < 1
+				@title = "[ #{params[:search_parameter]} not found ]"
+			end
+		else
+			@games = Game.all
+			@title = "[ all games ]"
+		end
 		@game = Game.new
 	end
 

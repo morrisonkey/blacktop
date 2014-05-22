@@ -1,27 +1,27 @@
-	<h2>[all games]</h2>
+	<h2><%=@title%></h2>
 	<p>&nbsp;</p>
 	<% @games.each do |game| %>
 	<% user = User.find_by_id(game.user_id) %>
 	<% date = game.created_at.to_s.split('')[0..9].join %>
-	<% all_users = User.all %>
-	<% likes = [] %>
-	<% all_users.each do |player| %>
-	<% player.favorites.all.each do |favorite| %>
-	<% if game.id == favorite.game_id %>
-	<% likes << player %>
-	<% end %>
-	<% end %>
-	<%end%>
 <article>
 	<a href="/games/<%=game.id%>" class="leftup">
 	<div class="poloroid"><%= image_tag game.photo %></div></a>
+	<% if game.objective %>
+	<h4><%=game.objective%></h4>
+	<h3>in<h3>
+		<% end %>
 	<h1><a href="/games/<%=game.id%>"><%= game.name %></h1></a>
-	<h4 class="leftup"><%= game.blurb %></h4>
-	<h3>Objective: <%=game.objective%></h3><p></p>
-	<p>Minimum Players:<%=game.min_players%></p>
+	<br></br>
+	<% if game.min_players %>
+	<p>Minimum Players: <%=game.min_players%></p>
+	<% end %>
+	<% if game.max_players %>
+	<p>Maximum Players: <%=game.max_players%></p>
+	<% end %>
+	<% if game.min_player_age %>
 	<p>For ages <%=game.min_player_age%> and up</p>
-	<p><%=game.additional_information%></p>
-	<p><a href="/games/<%=game.id%>">MORE</a></p>
-	<p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<%=likes.count%>)</p>
+	<% end %>
+	<h4 class="leftup">"<%= game.blurb %>"</h4>
+	<p class="metadata">Posted by <a href="/users/<%=user.id%>" %><%= user.name %></a> on <%= date %> / Likes(<%=game.favorites.count%>)</p>
 </article>
 		<% end %>
