@@ -186,7 +186,7 @@ class GamesController < ApplicationController
 		if game.user != current_user 
 		redirect_to '/login/user'
 		else
-		game.delete(id)
+		Game.delete(id)
 		redirect_to '/'
 		end
 	end
