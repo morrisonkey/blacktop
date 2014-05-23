@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   has_secure_password #changed
 
-  has_many :games
+  # has_many :games
   has_many :games, through: :favorites
   has_many :favorites
   has_many :comments

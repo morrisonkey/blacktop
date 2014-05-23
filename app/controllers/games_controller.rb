@@ -143,6 +143,9 @@ class GamesController < ApplicationController
 
 	def edit
 		@game = Game.find(params[:id])
+		if @game.user != current_user 
+		redirect_to "/games/#{@game.id}"
+		end
 	end
 
 	def update
@@ -178,9 +181,13 @@ class GamesController < ApplicationController
 	end
 
 	def delete
-		id = params[:id]
-		Game.delete(id)
-		redirect_to '/'
+		game = Game.find(params[:id])
+		if game.user == current_user 
+		game.delete(id)
+		redirect_to '/users/#{current_user.id}/home'
+		else
+		redirect_to '/login/user'
+		end
 	end
 
 	def game_attributes

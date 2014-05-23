@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get '/games/:id/edit' => 'games#edit', as: :edit_game
 
+  get '/games/:id/edit_validation' => 'games#edit_validation'
+
   patch '/games/:id' => 'games#update'
 
   get '/games/:id/delete' => 'games#delete'
