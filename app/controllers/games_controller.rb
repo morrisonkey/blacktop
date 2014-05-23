@@ -181,12 +181,13 @@ class GamesController < ApplicationController
 	end
 
 	def delete
-		game = Game.find(params[:id])
-		if game.user == current_user 
-		game.delete(id)
-		redirect_to '/users/#{current_user.id}/home'
-		else
+		id = params[:id]
+		game = Game.find_by_id(id)
+		if game.user != current_user 
 		redirect_to '/login/user'
+		else
+		game.delete(id)
+		redirect_to '/'
 		end
 	end
 
