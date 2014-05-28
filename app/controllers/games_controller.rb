@@ -2,7 +2,7 @@ class GamesController < ApplicationController
 
 	# before_action :authenticate_with_basic_auth
 	# before_save :process_tags
-	before_action :require_login, only: [:edit, :update, :delete]
+	before_action :require_login, only: [:edit, :update, :destroy]
 
 	def new
 		if params[:commit] == "add tag"
@@ -56,34 +56,11 @@ class GamesController < ApplicationController
 		else
 			@page = 1
 		end
-			if @page == 2
-				add_photo(params[:ig_hash_tag].gsub(" ",""))
-			elsif @page == 3 && params[:commit] != "add tag"
-				@tag_list = "#{params[:ig_hash_tag]}"
-			elsif @page >= 6
-				game = create
-				tags = TagHelper.process_tags(params[:tag_list] || "")
-				items = TagHelper.process_tags(params[:item_list] || "")
-				tags.each do |tag_name|
-					tag = Tag.find_by_name(tag_name)
-					if tag != nil
-					GameTag.create(
-      		:game_id => game.id,
-      		:tag_id => tag.id
-      		)
-					end
-				end
-				items.each do |item_name|
-					item = Item.find_by_name(item_name)
-					if item != nil
-					GameItem.create(
-      		:game_id => game.id,
-      		:item_id => item.id
-      		)
-					end
-				end
-				redirect_to game_path(game)
-			end
+		if @page == 2
+			add_photo(params[:ig_hash_tag].gsub(" ",""))
+		elsif @page == 3 && params[:commit] != "add tag"
+			@tag_list = "#{params[:ig_hash_tag]}"
+		end
 	end
 
 	def tag_it(game, tag)
@@ -110,6 +87,27 @@ class GamesController < ApplicationController
 			:additional_information => params[:additional_information],
 			:min_player_age         => params[:min_player_age]
 			)
+		tags = TagHelper.process_tags(params[:tag_list] || "")
+		items = TagHelper.process_tags(params[:item_list] || "")
+		tags.each do |tag_name|
+			tag = Tag.find_by_name(tag_name)
+			if tag != nil
+				GameTag.create(
+					:game_id => game.id,
+					:tag_id => tag.id
+					)
+			end
+		end
+		items.each do |item_name|
+			item = Item.find_by_name(item_name)
+			if item != nil
+				GameItem.create(
+					:game_id => game.id,
+					:item_id => item.id
+					)
+			end
+		end
+		redirect_to game_path(game)
 	end
 
 	def index
@@ -118,9 +116,9 @@ class GamesController < ApplicationController
 			Game.all.each do |game|
 				game.game_tags.each do |tag|
 					taggie = Tag.find_by_id(tag.tag_id)
-				if taggie.name == params[:search_parameter]
-					@games << game
-				end
+					if taggie.name == params[:search_parameter]
+						@games << game
+					end
 					@title = "[ #{params[:search_parameter]} games ]"
 				end
 			end
@@ -142,16 +140,20 @@ class GamesController < ApplicationController
 	end
 
 	def edit
-		@game = Game.find(params[:id])
-		if @game.user != current_user 
-		redirect_to "/games/#{@game.id}"
-		end
+		# if params[:comment]
+		# 	Comment.create(user: current_user, game_id: params[:id], body: params[:comment][:body])
+		# 	redirect_to game_path(Game.find_by_id(params[:id]))
+		# end
+			@game = Game.find(params[:id])
+			if @game.user != current_user 
+		redirect_to game_path(game)
+			end
 	end
 
 	def update
 		game = Game.find(params[:id])
 		game.update_attributes(game_attributes)
-		redirect_to "/games/#{params[:id]}"
+		redirect_to game_path(game)
 	end
 
 	def process_tags
@@ -180,14 +182,14 @@ class GamesController < ApplicationController
 		game.save!
 	end
 
-	def delete
+	def destroy
 		id = params[:id]
 		game = Game.find_by_id(id)
 		if game.user != current_user 
-		redirect_to '/login/user'
+			redirect_to '/login/user'
 		else
-		Game.delete(id)
-		redirect_to '/'
+			Game.delete(id)
+			redirect_to '/'
 		end
 	end
 

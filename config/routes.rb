@@ -1,42 +1,65 @@
+# Rails.application.routes.draw do
+
+#   root to: "users#index"
+
+#   resources :users, except: [:new] do
+#     resources :favorites do
+#       collection do
+#         get "search"
+#       end
+#     end
+#     resources :tours do
+#       collection do
+#         get "search"
+#       end
+#     end
+#   end
+#   get "/signup", to: "users#new", as: "new_user"
+
+#   resources :breweries, only: [:index, :show] do
+#     collection do
+#       get "search"
+#     end
+#     member do
+#       get "take_a_look"
+#     end
+#   end
+  
+# end
+
 Rails.application.routes.draw do
 
   root to: 'games#index'
 
-  get '/games' => 'games#index'
-  post '/' => 'games#index'
+  # get '/games' => 'games#index'
+  # post '/' => 'games#index'
  
-  # get '/games/:user_id/new' => 'games#new', as: :game
-  get '/games/new' => 'games#new'
-  post '/games/new' => 'games#new'
-  get '/games/:id' => 'games#show', as: :game
 
-  # get '/add_photo/games/:game_id' => 'games#add_photo'
-  
-  # get '/games/generate/:name/:game_id' => 'games#generate'
-  
-  post '/games' => 'games#create'
+  # get '/games/:id' => 'games#show', as: :game
 
-  get '/games/:id/edit' => 'games#edit', as: :edit_game
+  # post '/games' => 'games#create'
 
-  patch '/games/:id' => 'games#update'
+  # get '/games/:id/edit' => 'games#edit', as: :edit_game
 
-  get '/games/:id/delete' => 'games#delete'
+  # patch '/games/:id' => 'games#update'
 
-  get '/users/:id' => 'users#show'
+  # get '/games/:id/delete' => 'games#delete'
+
+  # get '/users/:id' => 'users#show'
 
   get '/user/:id/home' => 'users#home'
 
-  get '/user/:id/show' => 'users#show', as: :user
+  # get '/user/:id/show' => 'users#show', as: :user
 
-  get '/user/new' => 'users#new'
+  # get '/user/new' => 'users#new'
 
-  post '/users' => 'users#create'
+  # post '/users' => 'users#create'
 
-  get '/users/:id/edit' => 'games#edit', as: :edit_user
+  # get '/users/:id/edit' => 'games#edit', as: :edit_user
 
-  get '/user/update' => 'users#update'
+  # get '/user/update' => 'users#update'
 
-  get '/login/user' => 'users#login'
+  # get '/login/user' => 'users#login'
 
   get '/users/favorites/:id' => 'users#favorite'
 
@@ -44,19 +67,29 @@ Rails.application.routes.draw do
 
   get 'comments/:id/delete' => 'comments#delete'
 
-  # post '/login/user' => "users#process_login"
-
-  # get '/user/logout' => "users#end_session"
-
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
-  # root :to => "users#new"
+
   resources :users
-  resources :sessions
-  resources :games, only: [] do
-    resources :comments, only: [:create]
+
+  resource :sessions, only: [:create, :destroy]
+  get "/login", to: "sessions#new", as: "new_session"
+
+  resources :games do
+    resources :comments, only: [:create, :destroy]
   end
+
+  # map.resources :games, :key => :id do |game|
+  #   game.resources :comments, :key => :comment_id
+  # end
+  # resources :games
+
+  # scope "/games/:id" do
+  #   post "/comments", :to => "comments#create", :as => 'game_comments'
+  #   delete "/comments", :to => "comments#destroy", :as => 'game_comment'
+  # end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -8,8 +8,14 @@
   5 => "profile"
 }
 %>
-
-<%= form_tag do %>
+<% if @page < 5 %>
+<% target_path = new_game_path %>
+<% method = "get" %>
+<% else %>
+<% target_path = games_path %>
+<% method = "post" %>
+<% end %>
+<%= form_tag(target_path, {method: method}) do %>
   <%= render page_to_render[@page] %>
   <%= hidden_field_tag :page, @page %>
   <%= render "footer", :page => @page %>
